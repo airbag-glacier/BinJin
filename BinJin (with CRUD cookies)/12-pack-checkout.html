@@ -273,23 +273,25 @@
     <div class="modal">
       <h2>Customer Details</h2>
       Name:
-      <input type="text" id="customer-name" placeholder="Enter name " /> Contact
+      <input type="text" id="customer-name" placeholder="Enter name " required/> Contact
       No.:
       <input
         type="text"
         id="contact-number"
         placeholder="Enter contact number "
+        required
       />
       Payment Reference No.:
       <input
         type="text"
         id="payment-reference"
         placeholder="Enter reference number "
+        required
       />
       Branch:
-      <input type="text" id="branch-location" placeholder="Enter branch " />
+      <input type="text" id="branch-location" placeholder="Enter branch " required/>
       Pickup Time:
-      <input type="text" id="pickup-time" placeholder="Enter pickup time " />
+      <input type="text" id="pickup-time" placeholder="Enter pickup time " required/>
       <button class="close-modal" onclick="hideModal()">Close</button>
       <button class="confirm-modal" onclick="hideModal(); handleOrder(); openReceipt()">
         Confirm
@@ -299,6 +301,8 @@
     <div class="cartModal">
         <h2>Your Cart</h2>
         <h3>Box:</h3>
+        <label id="cartList"></label>
+        <br>
         <button class="closeCart" onclick="hideCart()">Close</button>
         <button class="confirmCart" onclick="showModal()">Confirm</button>
       </div>
