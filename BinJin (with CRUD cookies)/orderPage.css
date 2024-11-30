@@ -1,152 +1,150 @@
-      @font-face {
-            font-family: 'CurlyCandy';
-            src: url('font/CurlyCandy.ttf') format('truetype');
-        }
+@font-face {
+    font-family: 'CurlyCandy';
+    src: url('font/CurlyCandy.ttf') format('truetype');
+}
 
-        @font-face {
-            font-family: 'ComicBold';
-            src: url('font/ComicBold.ttf') format('truetype');
-        }
+@font-face {
+    font-family: 'ComicBold';
+    src: url('font/ComicBold.ttf') format('truetype');
+}
 
-        @font-face {
-            font-family: 'ComicRegular';
-            src: url('font/ComicRegular.ttf') format('truetype');
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: #f8f2ec;
-        }
+@font-face {
+    font-family: 'ComicRegular';
+    src: url('font/ComicRegular.ttf') format('truetype');
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #f8f2ec;
+}
 
-        .container1 {
-            background-color: #f8f2ec;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+.container1 {
+    background-color: #f8f2ec;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-        .divHome {
-            height: 12vh;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            left: 5px;
-        }
+.divHome {
+    height: 12vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 5px;
+}
 
-        .home {
-            position: relative;
-            width: 100%;
-            height: 12vh;
-            cursor: pointer;
-            scale: 0.8;
-        }
+.home {
+    position: relative;
+    width: 100%;
+    height: 12vh;
+    cursor: pointer;
+    scale: 0.8;
+}
 
-        
+.divBinJin {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'CurlyCandy';
+    background-color: #ffb9cd;
+    width: 100%;
+    height: 12vh;
+    font-size: 8vh;
+    align-items: center;
+    box-shadow: 0px 2.53px 0px 3px black;
+}
 
-        .divBinJin {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            font-family: 'CurlyCandy';
-            background-color: #ffb9cd;
-            width: 100%;
-            height: 12vh;
-            font-size: 8vh;
-            align-items: center;
-            box-shadow: 0px 2.53px 0px 3px black;
-        }
+.divHeader {
+    font-family: 'ComicBold';
+    font-size: 7.5vh;
+    letter-spacing: -0.7vh;
+    margin-top: 2vh;
+    margin-left: 5%;
+}
 
-        .divHeader {
-            font-family: 'ComicBold';
-            font-size: 7.5vh;
-            letter-spacing: -0.7vh;
-            margin-top: 2vh;
-            margin-left: 5%;
-        }
+.divBoxesContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow boxes to wrap */
+    justify-content: center; /* Center items horizontally */
+    gap: 20px; /* Spacing between boxes */
+    padding: 50px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    overflow-y: auto; /* Allow vertical scrolling */
+    flex-direction: row; /* Ensure items are displayed in a row by default */
+    padding-top: 0px;
+}
 
-        .divBoxesContainer {
-            display: flex;
-            flex-wrap: wrap; /* Allow boxes to wrap */
-            justify-content: center; /* Center items horizontally */
-            gap: 20px; /* Spacing between boxes */
-            padding: 50px;
-            width: 100%;
-            box-sizing: border-box; /* Ensure padding doesn't overflow */
-            overflow-y: auto; /* Allow vertical scrolling */
-            flex-direction: row; /* Ensure items are displayed in a row by default */
-            padding-top: 0px;
-        }
-
-        .pack3BoxNText, .pack6BoxNText, .pack12BoxNText {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            max-width: 500px;
-            flex-basis: 30%; /* Ensures that the container takes up 30% of the parent's width */
-            padding: 10px;
-            box-sizing: border-box;
-        }
+.pack3BoxNText, .pack6BoxNText, .pack12BoxNText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    max-width: 500px;
+    flex-basis: 30%; /* Ensures that the container takes up 30% of the parent's width */
+    padding: 10px;
+    box-sizing: border-box;
+}
 
 
 
-        .divBox {
-            background-color: #ffb9cd;
-            width: 100%; /* Responsive width */
-            aspect-ratio: 1; /* Maintain square box */
-            border-radius: 8%; /* Rounded corners */
-            cursor: pointer;
-            box-shadow: 0px 2.53px 0px 3px black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
+.divBox {
+    background-color: #ffb9cd;
+    width: 100%; /* Responsive width */
+    aspect-ratio: 1; /* Maintain square box */
+    border-radius: 8%; /* Rounded corners */
+    cursor: pointer;
+    box-shadow: 0px 2.53px 0px 3px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
 
-        .divBox img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-        }
+.divBox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
 
-        /* Styling for text below each box */
-        .divBoxText {
-            text-align: center;
-            margin-top: 10px;
-            width: auto; /* Ensure it takes full width */
-            font-family: "ComicRegular";
-            white-space: nowrap;
-        }
+/* Styling for text below each box */
+.divBoxText {
+    text-align: center;
+    margin-top: 10px;
+    width: auto; /* Ensure it takes full width */
+    font-family: "ComicRegular";
+    white-space: nowrap;
+}
 
-        .pack3, .pack6, .pack12 {
-            font-family: "ComicBold";
-            font-size: 6vh;
-        }
+.pack3, .pack6, .pack12 {
+    font-family: "ComicBold";
+    font-size: 6vh;
+}
 
-        .price3, .price6, .price12 {
-            font-family: "ComicRegular";
-            font-size: 3vh;
-            margin-top: 5px;
-        }
+.price3, .price6, .price12 {
+    font-family: "ComicRegular";
+    font-size: 3vh;
+    margin-top: 5px;
+}
 
-        @media (max-width: 800px) {
-            .divBoxesContainer {
-                flex-direction: column;
-                align-items: center;
-            }
+@media (max-width: 800px) {
+    .divBoxesContainer {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .divBox {
-                width: 80%;
-            }
+    .divBox {
+        width: 80%;
+    }
 
-            .pack3BoxNText, .pack6BoxNText, .pack12BoxNText {
-                width: 80%;
-                max-width: 800px;  /* Adjust width for smaller screens */
-            }
-        }
+    .pack3BoxNText, .pack6BoxNText, .pack12BoxNText {
+        width: 80%;
+        max-width: 800px;  /* Adjust width for smaller screens */
+    }
+}
 
 
