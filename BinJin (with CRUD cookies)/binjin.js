@@ -99,6 +99,7 @@ function openReceipt(){
   document.querySelector(".receipt-Modal").style.display = "block";
   document.querySelector(".modal-overlay").style.display = "block";
   document.querySelector(".cartModal").style.display = "none";
+  displayReceiptModal();
 }
 
 
@@ -118,6 +119,47 @@ function hideModal() {
   document.querySelector(".modal").style.display = "none";
   document.querySelector(".modal-overlay").style.display = "none";
 }
+function displayReceiptModal() {
+  // Retrieve customer details (replace with actual variable names if different)
+  const customerName = document.getElementById("customer-name").value;
+  const contactNumber = document.getElementById("contact-number").value;
+  const referenceNumber = document.getElementById("payment-reference").value;
+  const branchLocation = document.getElementById("branch-location").value;
+  const pickupTime = document.getElementById("pickup-time").value;
+
+  // Retrieve allBoxes from localStorage
+  const allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
+
+  // Format customer details
+  let receiptText = `Customer Details:\n`;
+  receiptText += `Name: ${customerName}\n`;
+  receiptText += `Contact Number: ${contactNumber}\n`;
+  receiptText += `Reference Number: ${referenceNumber}\n`;
+  receiptText += `Branch Location: ${branchLocation}\n`;
+  receiptText += `Pickup Time: ${pickupTime}\n\n`;
+
+  // Format box and cookie details
+  receiptText += `Order Details:\n`;
+  if (allBoxes.length === 0) {
+    receiptText += `No boxes added to the order.\n`;
+  } else {
+    allBoxes.forEach((box, index) => {
+      receiptText += `Box ${index + 1} (${box.boxType}-pack):\n`;
+      box.cookies.forEach((cookie, cookieIndex) => {
+        receiptText += `  ${cookieIndex + 1}. ${cookie}\n`;
+      });
+      receiptText += `\n`;
+    });
+  }
+
+  // Display the receipt in the modal's textarea
+  const receiptTextarea = document.getElementById("txReceipt");
+  receiptTextarea.value = receiptText;
+
+  document.querySelector(".receipt-Modal").style.display = "block";
+  document.querySelector(".modal-overlay").style.display = "block";
+}
+
 
 function handleOrder() {
   const customerName = document.getElementById("customer-name");
