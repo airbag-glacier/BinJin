@@ -1,0 +1,1664 @@
+       
+@font-face {
+    font-family: 'CurlyCandy';
+    src: url('font/CurlyCandy.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ComicBold';
+    src: url('font/ComicBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ComicRegular';
+    src: url('font/ComicRegular.ttf') format('truetype');
+}
+
+/* Remove margins/padding from body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure no unexpected padding/margin is applied */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* To prevent overflow */
+body {
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+}
+
+/* Optional: Add a global container around the body to center everything */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+
+/* div1 */
+.div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Full width of the viewport */
+    height: auto; /* Adjust based on content */
+    flex-direction: column; /* Stack elements if needed */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+    height: 100vh; 
+    position: relative; 
+    background: #FFE4CE;
+    
+    
+}
+
+.clouds {
+    width: 100vw; 
+    height: 768px; 
+    left: 0vw; 
+    bottom: 0vh; /* Aligns the image to the bottom */
+    position: absolute;
+}
+
+
+/* General Styles for All Elements */
+.whisk, .bear, .milk, .cookie, .pointedStar1, .pointedStar2, .star1, .star2, .star3, .heart1, .heart2 {
+position: absolute;
+animation: pop 1.5s ease-in-out infinite;
+object-fit: contain;
+}
+
+/* Whisk styling */
+.whisk {
+width: 182px;
+height: 182px;
+left: 10.926vw;
+top: 7.13vh;
+}
+
+/* Bear styling */
+.bear {
+width: 182px;
+height: 182px;
+left: 5vw;
+top: 32.963vh;
+animation-delay: 0.2s;
+}
+
+/* Milk styling */
+.milk {
+width: 182px;
+height: 182px;
+left: 80vw;
+top: 6.667vh;
+animation-delay: 0.4s;
+}
+
+/* Cookie styling */
+.cookie {
+width: 182px;
+height: 182px;
+left: 85vw;
+top: 32.778vh;
+animation-delay: 0.6s;
+}
+
+/* Pointed Star 1 styling */
+.pointedStar1 {
+width: 39px;
+height: 55px;
+left: 65vw;
+top: 30.185vh;
+}
+
+/* Pointed Star 2 styling */
+.pointedStar2 {
+width: 39px;
+height: 55px;
+left: 35vw;
+top: 36.296vh;
+}
+
+/* Star 1 styling */
+.star1 {
+width: 66px;
+height: 41px;
+left: 5vw;
+top: 25.926vh;
+}
+
+/* Star 2 styling */
+.star2 {
+width: 40px;
+height: 31px;
+left: 8vw;
+top: 52.963vh;
+}
+
+/* Star 3 styling */
+.star3 {
+width: 34px;
+height: 34px;
+left: 92vw;
+top: 53.704vh;
+}
+
+/* Heart 1 styling */
+.heart1 {
+width: 64px;
+height: 34px;
+left: 80vw;
+top: 45vh;
+}
+
+/* Heart 2 styling */
+.heart2 {
+width: 42px;
+height: 43px;
+left: 90vw;
+top: 25.093vh;
+}
+
+/* Media Queries for Different Screen Sizes */
+
+/* Tablet (Portrait and Landscape) */
+@media (max-width: 768px) {
+.whisk, .bear, .milk, .cookie {
+width: 20vw;
+height: 20vw;
+}
+.whisk {
+left: 13vw;
+top: 10vh;
+}
+.bear {
+left: 7vw;
+top: 40vh;
+}
+.milk {
+left: 70vw;
+top: 10vh;
+}
+.cookie {
+left: 75vw;
+top: 40vh;
+}
+
+.pointedStar1, .pointedStar2, .star1, .star2, .star3, .heart1, .heart2 {
+display: none;
+}
+
+}
+
+/* Mobile (Portrait and Landscape) */
+@media (max-width: 480px) {
+.whisk, .bear, .milk, .cookie {
+width: 35vw;
+height: 35vw;
+}
+.whisk {
+left: 15vw;
+top: 12vh;
+}
+.bear {
+left: 10vw;
+top: 45vh;
+}
+.milk {
+left: 65vw;
+top: 12vh;
+}
+.cookie {
+left: 70vw;
+top: 45vh;
+}
+
+.pointedStar1, .pointedStar2, .star1, .star2, .star3, .heart1, .heart2 {
+display: none;
+}
+}
+
+
+@keyframes pop {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+}
+
+.binjin {
+    width: 50.648vw; 
+    height: 44.352vh; 
+    left: 400px; 
+    top: 20vh; /* Move the image 20% down within the container */
+    object-fit: contain;
+    animation: rise 1.5s ease-out forwards;
+}
+
+
+.BJcontainer {
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center vertically within the container */
+    align-items: center; /* Center horizontally */
+    position: relative;
+    z-index: 10; /* Ensure it's above other background elements */
+}
+
+@keyframes rise {
+    0% {transform: translateY(25%); opacity: 0; }
+    100% {transform: translateY(0);opacity: 1;}
+}
+
+.header {
+    text-align: center;
+    color: #68400A;
+    font-size: 90px;
+    font-family: 'CurlyCandy';
+    font-weight: 400;
+    word-wrap: break-word;
+    margin-top: 200px;
+    max-width: 90%; /* Prevent overflow on smaller screens */
+    box-sizing: border-box; /* Ensure padding is accounted for in width */
+}
+       
+@media (max-width: 1263px) {
+    .header {
+        font-size: 75px; /* Reduce font size for tablets */
+    }
+}
+@media (max-width: 1052px) {
+    .header {
+        font-size: 50px; /* Reduce font size for tablets */
+    }
+}
+
+@media (max-width: 703) {
+    .header {
+        font-size: 20px; /* Reduce font size for tablets */
+    }
+}
+
+
+.tagline {
+    text-align: center;
+    color: #68400A;
+    font-size: 24px;
+    font-family: 'ComicRegular';
+    font-weight: 400;
+    word-wrap: break-word;
+    max-width: 90%; /* Prevent overflow on small screens */
+    margin-top: -2vh; /* Adjust vertical margin if needed */
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .tagline {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .tagline {
+        font-size: 16px; /* Smaller font size for mobile screens */
+    }
+}
+
+.btnOrder {
+    width: 200px; /* Set a base width */
+    height: 47px; /* Set a base height */
+    background-color: #F86B87;
+    color: white;
+    font-family: 'ComicBold';
+    border-radius: 30px;
+    font-size: 1.1em; /* Adjust font size */
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Change from absolute to relative for better flow */
+    display: inline-block; /* Makes the button inline-block */
+    text-align: center; /* Ensures text is centered inside the button */
+    margin: 20px;
+    margin-bottom: 100px;
+}
+
+/* Media query for screens smaller than 768px (tablets) */
+@media (max-width: 768px) {
+    .btnOrder {
+        width: 160px; /* Smaller width for tablets */
+        height: 40px; /* Adjust height */
+        font-size: 1em; /* Reduce font size */
+        padding: 12px 25px; /* Adjust padding */
+    }
+}
+
+/* Media query for screens smaller than 480px (mobile) */
+@media (max-width: 480px) {
+    .btnOrder {
+        width: 140px; /* Further reduce width for mobile */
+        height: 35px; /* Reduce height for mobile */
+        font-size: 0.9em; /* Reduce font size for mobile */
+        padding: 10px 20px; /* Adjust padding */
+    }
+}
+
+
+
+/* div2 */
+
+.div2 {
+display: flex;
+position: relative;
+justify-content: center; /* Center vertically within the container */
+align-items: center; /* Center horizontally */
+width: 100vw;
+height: auto; /* Adjust height based on content */
+background: #FEF7E7;
+padding-bottom: 100px; /* Space at the bottom to avoid clipping */
+flex-wrap: wrap; /* Allow elements to wrap to the next line on smaller screens */
+gap: 20px; /* Add space between items */
+flex-direction: column;
+}
+
+
+
+/* Positioning for each Div */
+.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
+width: 260px;
+height: 396px;
+background-color: white;
+border-radius: 30px;
+border: 1px solid #FFE4CE;
+position: relative;
+box-sizing: border-box;
+}
+
+/* Animation for the product images */
+.classic, .peanut, .oatmeal, .smores {
+width: 221px;
+height: 220px;
+position: absolute;
+left: 18px;
+top: 27px;
+animation: rotate360 20s linear infinite;
+}
+
+/* Text and description styling */
+.productName {
+width: 190px;
+position: absolute;
+left: 21px;
+top: 268px;
+color: #68400A;
+font-size: 16px;
+font-family: 'ComicBold';
+font-weight: 400;
+word-wrap: break-word;
+}
+
+.desc {
+width: 218px;
+height: 52px;
+position: absolute;
+left: 21px;
+top: 295px;
+color: #68400A;
+font-size: 11px;
+font-family: 'ComicRegular';
+font-weight: 400;
+word-wrap: break-word;
+}
+
+/* Positioning for arrowheads */
+.arrowhead {
+width: 33px;
+height: 33px;
+position: absolute;
+left: 211px;
+top: 347px;
+cursor: pointer;
+}
+
+/* Media queries for responsive behavior */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+.div2 {
+    flex-direction: column; /* Stack divs vertically */
+    align-items: center; /* Center the items */
+    gap: 30px; /* Add more space between items */
+}
+
+.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
+    width: 90%; /* Make the product divs take up 90% of the container width */
+    height: auto; /* Adjust height for content */
+}
+
+.classic, .peanut, .oatmeal, .smores {
+    width: 180px; /* Adjust image size */
+    height: 180px; /* Adjust image size */
+    left: 15px; /* Adjust position */
+}
+
+.productName {
+    font-size: 14px; /* Reduce font size for smaller screens */
+    top: 220px; /* Adjust position */
+}
+
+.desc {
+    font-size: 10px; /* Reduce font size */
+    top: 250px; /* Adjust position */
+}
+
+.arrowhead {
+    width: 20px;
+    height: 20px;
+    left: 120px; /* Adjust the arrow position */
+}
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+.div2 {
+    flex-direction: column; /* Stack divs vertically */
+    align-items: center; /* Center the items */
+}
+
+.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
+    width: 100%; /* Take up full width */
+    height: auto;
+}
+
+.classic, .peanut, .oatmeal, .smores {
+    width: 150px; /* Smaller image size */
+    height: 150px; /* Smaller image size */
+    left: 10px; /* Adjust position */
+}
+
+.productName {
+    font-size: 12px; /* Further reduce font size */
+    top: 180px; /* Adjust position */
+}
+
+.desc {
+    font-size: 8px; /* Reduce font size */
+    top: 210px; /* Adjust position */
+}
+
+.arrowhead {
+    width: 18px;
+    height: 18px;
+    left: 100px; /* Adjust arrow position for mobile */
+}
+}
+
+
+.brownStar1, .brownStar2 {
+width: 41px;
+height: 49px;
+position: absolute;
+
+}
+
+.brownStar1 {
+left: 33vw;
+top: 10vh;
+}
+
+.brownStar2 {
+left: 64vw;
+top: 30vh;
+}
+
+.CFcontainer {
+display: flex;
+flex-direction: column; /* Stack elements vertically */
+align-items: center; /* Horizontally center */
+justify-content: center; /* Vertically center */
+height: auto; /* Full viewport height */
+}
+
+/* Base Styles for .ourCookie and .flavors */
+.ourCookie, .flavors {
+text-align: center;
+color: #68400A;
+font-weight: 400;
+word-wrap: break-word; /* Allow long words to break */
+box-sizing: border-box;
+width: 100%; /* Ensure it takes up the full container width */
+margin: 0 auto; /* Center the content */
+padding: 20px;
+line-height: 1.1;
+}
+
+/* Our Cookie */
+.ourCookie {
+font-family: 'CurlyCandy';
+font-size: 90px;
+width: 100%;
+max-width: 565px; /* Prevent overflow on large screens */
+margin-top: 10vh;
+white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Flavors */
+.flavors {
+font-family: 'CurlyCandy';
+font-size: 90px;
+width: 100%;
+max-width: 565px; /* Prevent overflow on large screens */
+margin-bottom: 10vh;
+white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Media Queries for scaling down the text size */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1199px) {
+.ourCookie, .flavors {
+font-size: 70px; /* Scale down font size */
+}
+.brownStar1, .brownStar2 {
+display: none;
+}
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 767px) {
+.ourCookie, .flavors {
+font-size: 50px; /* Further scale down font size */
+}
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+.ourCookie, .flavors {
+font-size: 40px; /* Even smaller font size for tiny screens */
+}
+}
+
+
+@keyframes rotate360 {
+from {transform: rotate(0deg);}
+to {transform: rotate(360deg);}
+}
+
+/* div3 */
+.div3 {
+display: flex;
+position: relative;
+width: 100vw;
+height: auto;
+background: #FEF7E7;
+justify-content: center; /* Center content horizontally */
+align-items: center; /* Center content vertically */
+padding-bottom: 160px; /* Space at the bottom to avoid clipping */
+flex-wrap: wrap; /* Allow elements to wrap to the next line on smaller screens */
+flex-direction: column;
+}
+
+/* General Styles */
+.fiveEightCookies, .onefourCookies {
+width: 100vw;
+display: flex;
+position: relative;
+align-items: center; /* Center items vertically */
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center; /* Center items horizontally */
+gap: 50px;
+padding: 20px;
+}
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+.fiveEightCookies, .onefourCookies {
+justify-content: space-around; /* Spread items out evenly */
+}
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1199px) and (min-width: 768px) {
+.fiveEightCookies, .onefourCookies {
+justify-content: space-evenly; /* Slightly tighter spacing */
+gap: 30px; /* Reduce the gap for smaller screens */
+}
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 767px) {
+.fiveEightCookies, .onefourCookies {
+flex-direction: column; /* Stack items vertically */
+align-items: center; /* Center items horizontally */
+gap: 20px; /* Adjust the gap for stacking */
+}
+
+}
+
+@media (max-width: 769px) {
+/* Hide images */
+.classic, .peanut, .oatmeal, .smores,
+.pink, .chocoStraw, .lemon, .berry {
+display: none;
+}
+
+/* Ensure divs do not collapse or layer on top of each other */
+.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv,
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+width: auto; /* Make divs take full width */
+margin: 10px 0; /* Add spacing between divs */
+position: relative; /* Ensure position doesn't stack */
+}
+
+/* Adjust inner rectangles */
+.rectangle {
+width: auto; /* Full width of parent div */
+height: auto; /* Adjust height proportionally */
+}
+
+.productName, .desc, .arrowhead {
+position: static; /* Reset position to flow naturally */
+margin: 5px 0; /* Add spacing between text elements */
+text-align: center; /* Center-align text */
+}
+
+.arrowhead {
+display: block; /* Ensure visibility of the arrowhead */
+margin: 10px auto; /* Center horizontally */
+}
+}
+
+
+
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+width: 260px;
+height: 396px;
+background: white;
+border-radius: 30px;
+border: 1px solid #FFE4CE;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+box-sizing: border-box;
+}
+
+.pink, .chocoStraw, .lemon, .berry {
+width: 221px;
+height: 220.85px;
+position: absolute;
+top: 27px;
+left: 18px;
+animation: rotate360 20s linear infinite;
+}
+
+.productName {
+width: 190px;
+color: #68400A;
+font-size: 16px;
+font-family: 'ComicBold';
+font-weight: 400;
+word-wrap: break-word;
+text-align: center;
+}
+
+.desc {
+width: 218px;
+height: 52px;
+color: #68400A;
+font-size: 11px;
+font-family: 'ComicRegular';
+font-weight: 400;
+word-wrap: break-word;
+text-align: center;
+}
+
+.arrowhead {
+width: 33px;
+height: 33px;
+cursor: pointer;
+}
+
+/* Make the layout responsive */
+@media (max-width: 768px) {
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+width: auto; /* Shrink the width to fit two per row on smaller screens */
+height: auto; /* Allow the height to adjust based on content */
+}
+.fiveEightCookies {
+gap: 15px; /* Adjust the gap for smaller screens */
+}
+}
+
+@media (max-width: 480px) {
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+width: auto; /* Make each item take up most of the screen width on very small screens */
+}
+.fiveEightCookies {
+gap: 10px; /* Reduce the gap further for smaller screens */
+}
+}
+
+.btnOrder2 {
+width: 220px;
+height: 60px;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #F86B87;
+color: white;
+border-radius: 30px;
+font-family: 'ComicBold';
+font-size: 1.1em;
+padding: 15px 30px;
+border: none;
+cursor:pointer;
+margin-top: 10vh;
+}
+
+.strawberry {
+width: 94px;
+height: 94px;
+position: relative;
+margin-top: 15vh;
+}
+
+/* div4 */
+.div4 {
+position: relative; /* To contain absolutely positioned child elements */
+display: flex;
+flex-direction: column; /* Stack items vertically */
+align-items: center; /* Center content horizontally */
+justify-content: center; /* Center content vertically */
+padding: 20px;
+min-height: 100vh; /* Ensure the container takes full height */
+background: linear-gradient(180deg, #fef7e8, #ffe4cf, #ffe4cf);
+}
+
+.h4Container {
+display: flex;
+flex-direction: row; /* Align elements in a row */
+justify-content: center; /* Center the elements horizontally */
+align-items: center; /* Align elements vertically */
+position: relative; /* This is necessary for absolute positioning of the stars */
+width: 100%; /* Ensure it takes full width */
+height: auto; /* Allow height to adjust based on content */
+text-align: center; /* Center the text inside the header */
+}
+
+.header4 {
+font-size: 68px;
+font-family: 'CurlyCandy';
+font-weight: 400;
+color: #68400A;
+margin: 0 20px; /* Add spacing on left and right to keep it from being too tight */
+}
+
+.brownStar14, .brownStar24 {
+width: 41px;
+height: 49px;
+}
+
+.brownStar14 {
+margin-right: 20px; /* Add space between the first star and the text */
+}
+
+.brownStar24 {
+margin-left: 20px; /* Add space between the second star and the text */
+}
+
+@media (max-width: 768px) {
+.h4Container {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+}
+
+.header4 {
+    font-size: 48px; /* Reduce font size for smaller screens */
+}
+
+.brownStar14, .brownStar24 {
+    width: 35px; /* Resize stars for smaller screens */
+    height: 42px;
+}
+}
+
+
+.star24 {
+width: 40px;
+height: 31px;
+left: 80vw;
+top: 170px;
+position: absolute;
+}
+
+.star34 {
+width: 34px;
+height: 34px;
+left: 10vw;
+top: 186px;
+position: absolute;
+
+}
+
+.heart24 {
+width: 42px;
+height: 43px;
+left: 12vw;
+top: 111px;
+position: absolute;
+}
+
+@media (max-width: 1200px) {
+.star24, .star34, .heart24{
+    display: none;
+}
+}
+@media (max-width: 787px) {
+.brownStar14, .brownStar24{
+    display: none;
+}
+}
+
+
+.backstory {
+width: 70%; /* Adjust the width of the background image */
+height: auto; /* Maintain aspect ratio */
+}
+
+.desc4 {
+font-size: 1rem;
+color: #68400A;
+text-align: center;
+max-width: 60%; /* Limit the width of text for readability */
+margin-bottom: 30px; /* Space below the description */
+font-family: 'ComicRegular';
+}
+
+
+.brownStar14, .brownStar24, .star24, .star34, .heart24{
+animation: pop 1.5s ease-in-out infinite;
+}
+
+/* div5 */
+
+.div5 {
+width: 100vw;
+height: auto;
+position: relative;
+background: #FFE4CE;
+min-height: 720px;
+height: 100vh; 
+display: flex;
+flex-direction: row;
+padding: 20px;
+margin: 0; /* Ensure no margin */
+overflow: hidden
+}
+
+
+
+.h5Container {
+display: flex;
+flex-direction: column;
+width: 100%;  /* Ensure it takes up full width of parent container */
+max-width: 600px;  /* Limit the maximum width */
+box-sizing: border-box;
+overflow-wrap: break-word;  /* Ensure words break correctly */
+padding-right: 20px;  /* Padding for some space on the right */
+margin: 0 auto;  /* Center the container horizontally */
+padding: 10px;
+margin-left: 200px;  /* Move the container 20px to the left */
+}
+
+
+.header5 {
+width: 100%;
+max-width: 600px;  /* Limit width to avoid excessive stretching */
+height: auto;
+position: relative;
+left: 0;
+top: 0;
+word-wrap: break-word;  /* Ensure wrapping for words */
+overflow-wrap: break-word;
+}
+
+.headerText {
+color: #68400A;
+font-size: 60px;
+font-family: 'CurlyCandy';
+font-weight: 400;
+line-height: 70px;
+word-wrap: break-word;
+overflow-wrap: break-word;
+margin-bottom: 30px;
+width: 100%;
+max-width: 80%;  /* Limit width to 80% */
+text-align: center;  /* Center align text */
+}
+
+.headerLove {
+color: #F86B87;
+font-size: 60px;
+font-family: 'CurlyCandy';
+font-weight: 400;
+line-height: 70px;
+word-wrap: break-word;
+overflow-wrap: break-word;
+}
+
+.desc5 {
+width: 100%;
+max-width: 460px;
+height: auto;
+position: relative;
+left: 0;
+top: 5vh;
+color: #68400A;
+font-size: 18px;
+font-family: 'ComicRegular';
+font-weight: 400;
+line-height: 40px;
+word-wrap: break-word;
+overflow-wrap: break-word;
+}
+
+
+
+
+.clouds5 {
+width: 100vw;
+height: 768px;
+left: 0vw; 
+bottom: 0vh; /* Aligns the image to the bottom */
+position: absolute;
+}
+
+.div5ElementsContainer {
+display: flex;
+flex-wrap: wrap; 
+justify-content: center; /* Centers items horizontally */
+align-items: flex-start; /* Aligns items at the top */
+gap: 20px;
+margin: 0 auto; /* Centers container in the parent */
+padding: 0;
+box-sizing: border-box;
+}
+
+@media (max-width: 1629px) {
+.cookie5, .bear5{
+    display: none;
+}
+}
+@media (max-width: 1489px) {
+.cookies5{
+    display: none;
+}
+}
+@media (max-width: 923px) {
+.heart25, .star15{
+    display: none;
+    margin-left: 50px;
+}
+.h5Container{
+    margin-left: 50px;
+}
+}
+@media (max-width: 689px) {
+.div5ElementsContainer{
+    display: none;
+}
+}
+@media (max-width: 677px) {
+.headerText, .headerLove{
+    font-size: 40px;
+    
+}
+}
+
+@media (max-width: 595px) {
+.headerText, .headerLove {
+    white-space: normal; /* Allow text wrapping */
+    word-wrap: break-word; /* Break long words if necessary */
+    width: 100%; /* Ensure the text fits within the parent container */
+    text-align: center; /* Optional: Center-align the text */
+}
+}
+
+.cookies5 {
+width: 552px;
+height: 504px;
+position: absolute;
+left: 63.241vw;
+top: 5vh;
+right: 5vw;
+}
+
+.bear5 {
+width: 182px;
+height: 182px;
+position: absolute;
+left: 65.13vw;
+top: 5vh;
+}
+
+.cookie5 {
+width: 182px;
+height: 182px;
+position: absolute;
+left: 80vw;
+top: 40vh;
+}
+
+.star25 {
+width: 63px;
+height: 49px;
+position: absolute;
+left: 92vw;
+top: 50vh;
+}
+
+.heart25 {
+width: 42px;
+height: 43px;
+position: absolute;
+left: 5vw;
+top: 50vh;
+}
+
+.heart15 {
+width: 64px;
+height: 34px;
+position: absolute;
+left: 94vw;
+top: 40vh;
+}
+
+.star15 {
+width: 66px;
+height: 41px;
+position: absolute;
+left: 5vw;
+top: 13vh;
+}
+
+.cookie5, .bear5, .star15, .star25, .heart15, .heart25{
+animation: pop 1.5s ease-in-out infinite;
+}
+
+/* div6 */
+.div6 {
+width: 100vw;
+min-height: 100vh; /* Ensures at least full screen height */
+height: auto; /* Adjust height dynamically based on content */
+position: relative;
+background: #FEF7E7;
+display: flex;
+flex-direction: column;
+justify-content: flex-start; /* Content starts at the top */
+align-items: center;
+padding: 20px; /* Add padding around the container */
+box-sizing: border-box; /* Include padding in dimensions */
+overflow: visible; /* Prevent content from being clipped */
+}
+
+.header6 {
+text-align: center;
+color: #68400A;
+font-size: 68px;
+font-family: 'CurlyCandy';
+font-weight: 400;
+word-wrap: break-word;
+margin-bottom: 20px; /* Add spacing between header and reviews */
+}
+
+.h6Container {
+display: flex; /* Align items in a row */
+justify-content: center; /* Center content horizontally */
+align-items: center; /* Align items vertically */
+gap: 10px; /* Add spacing between stars and text */
+padding: 10px; /* Add some padding */
+margin-bottom: 20px; /* Add spacing below this section */
+}
+
+.brownStar16, .brownStar26 {
+width: 41px;
+height: 49px;
+}
+
+.reviewContainer {
+display: flex; /* Flex layout for reviews */
+justify-content: center; /* Center reviews horizontally */
+align-items: flex-start; /* Align items to the top */
+flex-wrap: wrap; /* Allow reviews to wrap to the next line */
+gap: 20px; /* Add spacing between reviews */
+width: 100%; /* Full width of the parent container */
+box-sizing: border-box; /* Include padding in dimensions */
+padding: 20px; /* Add padding around reviews */
+}
+
+/* Individual Review Styling */
+.review1, .review2, .review3 {
+flex: 1 1 calc(33.333% - 20px); /* Default: 3 reviews per row */
+box-sizing: border-box;
+margin: 10px;
+min-width: 300px; /* Prevent reviews from becoming too narrow */
+max-width: 350px; /* Optional: Limit maximum width for uniformity */
+border-radius: 30px; /* Rounded corners */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+background: white; /* Background for the review cards */
+position: relative; /* Ensure proper alignment of child elements */
+padding: 20px; /* Add padding for content */
+overflow: hidden; /* Prevent overflow */
+}
+
+.rectangle1, .rectangle2, .rectangle3 {
+width: 100%; /* Match the parent width */
+height: 100%; /* Match the parent height */
+background: white;
+border-radius: 30px;
+border: 1px #FFE4CE solid;
+}
+
+.marcus, .ana, .emily {
+width: auto;
+padding: 10px;
+}
+
+.reviewText {
+color: #68400A;
+font-size: 18px;
+font-family: 'ComicRegular';
+font-weight: 400;
+word-wrap: break-word;
+}
+
+.reviewAuthor {
+color: #68400A;
+font-size: 18px;
+font-family: 'ComicBold';
+font-weight: 700;
+word-wrap: break-word;
+}
+
+.stars1, .stars2, .stars3 {
+width: 145px;
+height: auto; /* Adjust height automatically */
+margin-bottom: 10px; /* Add spacing below stars */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+/* Adjust for tablet screens */
+.review1, .review2, .review3 {
+flex: 1 1 calc(50% - 20px); /* Two reviews per row */
+}
+}
+
+@media (max-width: 768px) {
+/* Adjust for mobile screens */
+.review1, .review2, .review3 {
+flex: 1 1 100%; /* Stack reviews vertically */
+max-width: 100%; /* Take full width */
+}
+.reviewContainer {
+gap: 10px; /* Reduce space between reviews */
+padding: 10px; /* Smaller padding for mobile */
+}
+}
+
+
+/* div7 */
+/* Overall container for the FAQ section */
+.div7 {
+width: 100vw;
+height: auto;
+position: relative;
+background: #FEF7E7;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+padding-top: 20px; /* Add padding to the top for better spacing */
+}
+
+/* Header styling */
+.header7 {
+text-align: center;
+color: #68400A;
+font-size: 68px;
+font-family: 'CurlyCandy';
+font-weight: 400;
+word-wrap: break-word;
+margin-bottom: 30px; /* Spacing below header */
+width: auto; /* Allow width to adjust based on content */
+max-width: 296px; /* Ensure max width to avoid excessive stretching */
+}
+
+.h7Container {
+display: flex; /* Align items in a row */
+justify-content: center; /* Center content horizontally */
+align-items: center; /* Align items vertically */
+gap: 10px; /* Add space between stars and header */
+padding: 10px; /* Padding around the container */
+margin-bottom: 20px; /* Add space below this section */
+}
+
+.brownStar17, .brownStar27 {
+width: 41px;
+height: 49px;
+position: relative;
+}
+
+
+@media (max-width: 768px) {
+.header7 {
+font-size: 48px; /* Smaller font for mobile */
+width: auto;
+}
+
+.faq-container {
+gap: 20px; /* Reduce gap between FAQ items on smaller screens */
+padding: 5px; /* Reduce padding */
+min-height: 90vh; /* Adjust container height to leave space on small screens */
+}
+
+.faq1, .faq2, .faq3, .faq4, .faq5 {
+width: 90%; /* Take up most of the width on smaller screens */
+padding: 10px;  /* Reduce padding for smaller screens */
+}
+}
+
+@media (max-width: 500px) {
+.faq-container {
+min-height: 85vh; /* Further reduce the minimum height on very small screens */
+}
+}
+
+/* FAQ container with flex display to center align items */
+.faq-container {
+display: flex;
+flex-direction: column;
+gap: 10px; /* Space between FAQ items */
+align-items: center;
+width: 100%;  /* Ensure the container is full width */
+max-width: 900px; /* Maximum width for better centering on large screens */
+padding: 10px;
+min-height: 100vh; /* Ensure at least full screen height */
+box-sizing: border-box; /* Include padding in the height calculation */
+overflow: auto; /* Allow scrolling if content exceeds available space */
+}
+
+/* Styling for each FAQ item */
+.faq1, .faq2, .faq3, .faq4, .faq5 {
+width: 100%;
+max-width: 894px;
+height: 98px;
+background: white;
+border-radius: 30px;
+border: 1px solid #FFE4CE;
+display: flex;
+align-items: center;
+padding: 0 20px;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative;
+}
+
+.faq1, .faq2, .faq3, .faq4 {
+margin-bottom: 10px; /* Space between FAQ items */
+}
+
+.faq5 {
+margin-bottom: 0; /* No bottom margin for the last FAQ item */
+}
+
+/* Question text styling */
+.question1, .question2, .question3, .question4, .question5 {
+font-size: 1.3em;
+font-weight: bold;
+font-family: 'ComicBold';
+color: #68400A;
+flex-grow: 1; /* Make the question take up remaining space */
+text-align: left;
+}
+
+/* Styling for the arrows */
+.arrowDown1, .arrowDown2, .arrowDown3, .arrowDown4, .arrowDown5 {
+width: 33px;
+height: 33px;
+position: absolute;
+right: 20px;  /* Position the arrows to the right side */
+top: 32px;
+transition: transform 0.3s ease;
+cursor: pointer;
+}
+
+/* Rotate the arrows when expanded */
+.arrowDown1.rotate, .arrowDown2.rotate, .arrowDown3.rotate, .arrowDown4.rotate, .arrowDown5.rotate {
+transform: rotate(180deg);
+}
+
+/* New text to be shown on click (initially hidden) */
+.new-text {
+display: none; /* Hide by default */
+color: #68400A;
+font-family: 'ComicRegular';
+font-size: 1em;
+margin-top: 5px;
+}
+
+/* Media Queries for better responsiveness */
+@media (max-width: 768px) {
+.header7 {
+font-size: 48px; /* Smaller font for mobile */
+width: auto;
+}
+
+.faq-container {
+gap: 20px; /* Reduce gap between FAQ items on smaller screens */
+}
+
+.faq1, .faq2, .faq3, .faq4, .faq5 {
+width: 90%; /* Take up most of the width on smaller screens */
+padding: 10px;  /* Reduce padding for smaller screens */
+}
+}
+
+/* div8 */
+/* Main container for div8 */
+.div8 {
+width: 100vw; 
+height: 100vh; /* Use viewport height for responsive height */
+position: relative;
+background: linear-gradient(180deg, #fef7e8, #ffe4cf, #ffe4cf);
+}
+
+/* Header style for div8 */
+.header8 {
+width: 100%;
+max-width: 1407px; /* Prevent header from stretching too wide */
+height: auto; /* Allow the height to adjust with content */
+position: absolute;
+left: 50%; /* Center the header horizontally */
+top: 20%; /* Adjust top to move the header down */
+transform: translateX(-50%); /* Adjust positioning */
+text-align: center;
+color: #FEF7E7;
+font-size: 10vw; /* Font size relative to viewport width */
+font-family: 'CurlyCandy';
+font-weight: 400;
+word-wrap: break-word;
+text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+/* Background for div8 */
+.div8Bg {
+width: 100vw;
+height: 100%; /* Full height of the container */
+position: absolute;
+left: 0;
+top: 0;
+background-size: cover; /* Ensure the background covers the container */
+background-position: center; /* Keep the background centered */
+object-fit: cover; /* Prevent stretching if it's an image */
+}
+
+/* Media Queries for small screens */
+
+/* For Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+.header8 {
+font-size: 12vw; /* Adjust font size for smaller screens */
+}
+}
+
+/* For Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+.header8 {
+font-size: 15vw; /* Increase font size for mobile */
+top: 10%; /* Adjust the position for better visibility */
+}
+}
+
+/* For Extra Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+.header8 {
+font-size: 18vw; /* Make the font even larger for very small screens */
+top: 5%; /* Adjust top margin for very small screens */
+}
+}
+
+
+.div9 {
+width: 100vw;
+height: 100vh;
+position: relative;
+background: #FEF7E7;
+display: flex;
+justify-content: center;  /* Center the containers horizontally */
+align-items: flex-start;  /* Align items to the top */
+flex-direction: column;  /* Stack content vertically */
+padding: 0 20px;  /* Padding for some space on the sides */
+box-sizing: border-box;
+}
+
+.line {
+width: 80%;  /* Make the line width responsive */
+height: 0;
+border: 1px solid #68400A;
+position: absolute;
+bottom: 60px;  /* Position line near the bottom, above the footer */
+left: 50%;
+transform: translateX(-50%);  /* Center the line */
+}
+
+.h9d9Container{
+display: flex;
+flex-direction: row;
+width: 100%;  /* Ensure it takes full width */
+justify-content: space-between;  /* Spread containers apart */
+}
+
+/* Container for header and description */
+.h9Container {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+width: 45%;  /* Adjust the width for left container */
+padding: 20px;
+margin-right: 20px;  /* Space between the containers */
+margin-left: 10%;  /* Move the container to the right by 10% */
+box-sizing: border-box;
+min-width: 300px;  /* Ensure a minimum width */
+}
+
+
+/* Header styling */
+.header9 {
+color: #68400A;
+font-size: 70px;
+font-family: 'CurlyCandy';
+font-weight: 400;
+line-height: 90px;
+word-wrap: break-word;
+margin-bottom: 20px;  /* Space between header and other content */
+
+}
+
+/* Container for description */
+.desc9Container {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+width: 100%;  /* Use 100% width for full responsiveness */
+max-width: 600px;  /* Limit max width for larger screens */
+padding: 20px;
+box-sizing: border-box;
+position: relative;
+min-width: 300px;  /* Ensure a minimum width */
+margin-left: 0;  /* Remove the fixed margin-left */
+}
+
+/* Description styling */
+.desc9 {
+color: #68400A;
+font-size: 26px;
+font-family: 'ComicRegular';
+font-weight: 400;
+word-wrap: break-word;
+margin-bottom: 10px;
+}
+
+
+/* Store and Contact Information */
+.storeAddress, .contactUs {
+color: #68400A;
+font-size: 26px;
+font-family: 'ComicBold';
+font-weight: 700;
+word-wrap: break-word;
+}
+
+.storeDetails, .contactDetails {
+color: #68400A;
+font-size: 26px;
+font-family: 'ComicRegular';
+font-weight: 400;
+word-wrap: break-word;
+}
+
+.iconContainers{
+display: flex;
+flex-direction: row;
+justify-content: space-between;  /* Space the icons evenly */
+}
+
+/* Social Media Icons */
+.fb, .ig, .whatsapp {
+width: 50px;
+height: 50px;
+position: relative;
+margin-bottom: 10px;  /* Space between icons */
+}
+
+.fb {
+margin-top: 10px; /* Space between contact details and FB icon */
+margin-right: 15px; /* Space between Facebook and Instagram */
+}
+
+.ig {
+margin-top: 10px; /* Space between icons */
+margin-right: 15px; /* Space between Instagram and WhatsApp */
+}
+
+.whatsapp {
+margin-top: 10px; /* Space between icons */
+}
+
+/* Footer */
+.footer {
+width: 100%;
+text-align: center;
+color: #68400A;
+font-size: 20px;
+font-family: 'ComicRegular';
+font-weight: 400;
+word-wrap: break-word;
+margin-top: 20px;
+position: absolute;
+bottom: 20px;  /* Position footer at the bottom of the container */
+}
+
+/* Media Queries for smaller screens */
+
+/* For Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+.h9Container, .desc9Container {
+width: 100%;  /* Full width on smaller screens */
+margin-right: 0;  /* Remove right margin */
+}
+
+.header9 {
+font-size: 8vw;  /* Make the font responsive */
+}
+
+.desc9 {
+font-size: 1.2em;
+}
+
+.line {
+width: 90%;  /* Adjust line width for tablets */
+}
+
+.fb, .ig, .whatsapp {
+width: 40px;
+height: 40px;
+}
+}
+
+/* For Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+.h9Container, .desc9Container {
+width: 100%;  /* Full width on mobile screens */
+margin-right: 0;
+padding: 10px;
+}
+
+.header9 {
+font-size: 12vw;  /* Larger font size for mobile */
+text-align: center;  /* Center header text */
+}
+
+.desc9 {
+font-size: 1.1em;
+text-align: center;  /* Center description text */
+}
+
+.line {
+width: 90%;
+}
+
+.fb, .ig, .whatsapp {
+width: 40px;
+height: 40px;
+bottom: 20px;  /* Adjust icon size and positioning */
+margin-top: 10px; /* Space between contact details and icons */
+}
+@media (max-width: 769px) {
+.h9d9Container {
+flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0px;
+}
+
+/* Center the desc9Container */
+.desc9Container {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;  /* Make the container full width */
+padding: 10px;
+box-sizing: border-box;
+text-align: center;
+margin: 0 auto;  /* Center the container */
+}
+
+.desc9 {
+font-size: 1.1em;
+text-align: center;  /* Center description text */
+}
+}
+}
+

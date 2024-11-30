@@ -1,0 +1,354 @@
+
+
+
+
+@font-face {
+  font-family: "CurlyCandy";
+  src: url("font/CurlyCandy.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ComicBold";
+  src: url("font/ComicBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "ComicRegular";
+  src: url("font/ComicRegular.ttf") format("truetype");
+}
+body {
+  overflow-x: hidden;
+  background-color: #f8f2ec;
+}
+
+.divBinJin {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-family: "CurlyCandy";
+  background-color: #ffb9cd;
+  width: 100%;
+  height: 12vh;
+  font-size: 8vh;
+  align-items: center;
+  box-shadow: 0px 2.53px 0px 3px black;
+}
+
+.divHome {
+  height: 12vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 5px;
+}
+
+.home {
+  position: relative;
+  width: 100%;
+  height: 12vh;
+  cursor: pointer;
+  scale: 0.8;
+}
+
+.container1 {
+  background-color: #f8f2ec;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -2px;
+  top: -2px;
+}
+
+.container2 {
+  background-color: #ffb9cd;
+  width: 50%;
+  height: 80vh;
+  position: absolute;
+  top: 15vh;
+  border-radius: 8%;
+  left: 2.5%;
+  border: black 0.5px solid;
+}
+
+.container3 {
+  background-color: #f8f2ec;
+  width: 40.5%;
+  height: 60%;
+  position: absolute;
+  top: 15vh;
+  left: 55%;
+  right: 2.5%;
+  font-family: "ComicBold";
+  letter-spacing: -0.3vh;
+  font-size: 6vh;
+  padding-top: 2%;
+  padding-left: 2%;
+  overflow-y: scroll;
+}
+
+.classic,
+.pntButter,
+.oatRaisin,
+.smrBrownie,
+.pnkSugar,
+.chStrawberry,
+.lemCheesecake,
+.berCream {
+  border-bottom: 0.5px solid black;
+  height: 8vh;
+  font-size: 5vh;
+  align-items: center;
+  align-self: center;
+  justify-content: left;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.divAddToCart {
+  background-color: #ffb9cd;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  font-family: "ComicBold";
+  letter-spacing: -0.3vh;
+  font-size: 6vh;
+  border-radius: 20px;
+  border: solid black 1px;
+  cursor: pointer;
+  align-content: center;
+  justify-content: center;
+  padding-left: 20px;
+  left: 56%;
+  bottom: 10px; /* Adjust to ensure it's at the bottom */
+}
+
+.returnOrderNow {
+  background-color: #ffb9cd;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  font-family: "ComicBold";
+  letter-spacing: -0.3vh;
+  font-size: 6vh;
+  border-radius: 20px;
+  border: solid black 1px;
+  cursor: pointer;
+  align-content: center;
+  justify-content: center;
+  padding-left: 20px;
+  left: 78%;
+  bottom: 10px; /* Adjust to ensure it's at the bottom */
+}
+
+.classicIcon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  top: 2%;
+}
+
+@media screen and (max-width: 800px) {
+  .container2 {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    left: 0;
+    top: 14vh;
+    margin: 10px auto;
+  }
+
+  .container3 {
+    width: 100%;
+    height: auto; /* Ensure it grows with content */
+    position: relative;
+    left: 0;
+    top: 14vh;
+    margin: 10px auto;
+    overflow-y: scroll;
+    padding-bottom: 60px; /* Space for the Add to Cart button */
+  }
+
+  .divAddToCart {
+    position: relative;
+    top: auto;
+    bottom: 0;
+    margin: 20px auto 0;
+    width: 200px;
+    left: 0;
+    margin-top: 40px;
+  }
+
+  .returnOrderNow {
+    position: relative;
+    margin: 20px auto 0;
+    width: 200px;
+    left: 0;
+    margin-top: 40px;
+  }
+
+  .cartModal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.open-modal {
+  background-color: #ffb9cd;
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "ComicBold";
+}
+
+.modal {
+  font-family: "ComicBold";
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 5%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 50%;
+}
+
+.receipt-Modal { 
+    font-family: "ComicBold"; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 50px; 
+    border-radius: 5%; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+    width: 50%; 
+    max-width: 400px;
+    max-height: 80vh; 
+    box-sizing: border-box; 
+    display: none; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden;
+}
+
+
+
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 16, 16, 0.5);
+  z-index: 999;
+}
+
+.modal input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  font-family: "ComicBold";
+  border-style: groove;
+}
+
+.close-modal,
+.closeCart, .close-receipt {
+  font-family: "ComicBold";
+  background-color: #f19eb6;
+  border: 1px black solid;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.confirm-modal,
+.confirmCart {
+  font-family: "ComicBold";
+  background-color: #045a4c;
+  border: 1px black solid;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.cartModal {
+  font-family: "ComicBold";
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 4%;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 35%;
+}
+
+.cartButton {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background-color: #f86f96;
+  border-radius: 100px;
+  padding: 15px 15px;
+  cursor: pointer;
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  
+}
+
+.shoppingCart{
+  width: 30px;
+  height: 30px;
+
+  
+
+}
+.quantifiers {
+  position: absolute;
+  height: inherit;
+  justify-content: right;
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+.btnCookieSub,
+.btnCookieAdd {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.numCookie {
+  width: 30px;
+  height: 25px;
+  text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="button"]:active {
+  background-color: #f19eb6;
+  border: none;
+}
+
+
+

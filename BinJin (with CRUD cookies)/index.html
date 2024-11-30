@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BinJin Cookies</title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="main.css">
+        
+        <script type="text/javascript" src="binjin.js">
+            function expandRectangle(element) {
+            // Get the associated question for the clicked FAQ item
+            const question = element.querySelector('.question1, .question2, .question3, .question4, .question5');
+            let newText = element.querySelector('.new-text'); // Check if new text is already present
+
+            // If the new text does not exist, create it
+            if (!newText) {
+                newText = document.createElement('span');  // Create a new span element
+                newText.classList.add('new-text');  // Add the class for styling the new text
+
+                // Customize the answer text for each FAQ
+                if (element.classList.contains('faq1')) {
+                newText.textContent = " - Our cookies are made from the finest ingredients, with unique flavors.";
+                } else if (element.classList.contains('faq2')) {
+                newText.textContent = " - We’re open Monday to Saturday from 9:00 AM to 7:00 PM.";
+                } else if (element.classList.contains('faq3')) {
+                newText.textContent = " - Absolutely! We accept custom orders for events such as birthdays and weddings.";
+                } else if (element.classList.contains('faq4')) {
+                newText.textContent = " - To keep our cookies fresh, we only offer pickup options.";
+                } else if (element.classList.contains('faq5')) {
+                newText.textContent = " - Yes, all our cookies are baked fresh daily to guarantee top quality and taste.";
+                }
+
+                question.appendChild(newText);  // Append the new text to the question
+            }
+            
+            // Toggle visibility of the new text (answer)
+            newText.style.display = newText.style.display === 'none' ? 'block' : 'none';
+
+            // Rotate the arrow to indicate the change
+            const arrow = element.querySelector('img');
+            if (arrow) {
+                arrow.classList.toggle('rotate');  // Toggle rotation class
+            }
+            }
+
+
+
+        </script>
+
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="div1">
+                <img class="clouds" src="images/clouds.png"/>
+                <img class="whisk" src="images/whisk.png"/>
+                <img class="bear" src="images/bear.png"/>
+                <img class="milk" src="images/milk.png"/>
+                <img class="cookie" src="images/cookie.png"/>
+                <div class="BJcontainer">
+                    <div class="header">BinJin Cookies</div>
+                    <div class="tagline">Indulge in the Sweet Moments</div>
+                    <button class="btnOrder" id ="btn_Order" onclick="openPageOrderNow()">Order Now</button>
+                    <img class="binjin" src="images/binjin.png"/>
+                </div>
+                
+    
+                <img class="pointedStar1" src="images/pointedStar.png"/>
+                <img class="pointedStar2" src="images/pointedStar.png"/>
+                <img class="star1" src="images/star1.png"/>
+                <img class="star2" src="images/star2.png"/>
+                <img class="star3" src="images/star3.png"/>
+                
+                <img class="heart1" src="images/heart1.png"/>
+                <img class="heart2" src="images/heart2.png"/>
+               
+            </div>
+    
+            <div class="div2">
+    
+                <img class="brownStar1" src="images/brownStar.png" />
+                <img class="brownStar2" src="images/brownStar.png" />
+                <div class="CFcontainer">
+                    <div class="ourCookie">Our Cookie</div>
+                    <div class="flavors">Flavors</div>
+                </div>
+    
+                <div class="onefourCookies">
+                    <div class="classicDiv">
+                        <div class="rectangle"></div>
+                        <img class="classic" src="images/classic.png" />
+                        <div class="productName">Classic Cookie</div>
+                        <div class="desc">Chocolate chip, but make it chunky—a delicious cookie filled with irresistible semi-sweet chocolate chunks and a sprinkle of flaky sea salt.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" onclick="openClassicInfo()">
+                      </div>
+                      
+                      <div class="peanutDiv">
+                        <div class="rectangle"></div>
+                        <img class="peanut" src="images/peanut.png" />
+                        <div class="productName">Classic Peanut Butter</div>
+                        <div class="desc">An iconic cookie bursting with peanut butter and embellished with a classic cross-hatch pattern.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" />
+                      </div>
+                    
+                      <div class="oatmealDiv">
+                        <div class="rectangle"></div>
+                        <img class="oatmeal" src="images/oatmeal.png" />
+                        <div class="productName">Oatmeal Raisin</div>
+                        <div class="desc">A thick cinnamon oatmeal cookie packed with delicious raisins.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" />
+                      </div>
+                    
+                      <div class="smoresDiv">
+                        <div class="rectangle"></div>
+                        <img class="smores" src="images/smores.png" />
+                        <div class="productName">Smores Brownie Cookie</div>
+                        <div class="desc">A decadent explosion of rich flavors including brownie, graham cracker, milk chocolate chips, and perfectly melty marshmallows.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" />
+                      </div>
+                </div>
+                
+              
+                
+                
+            </div>
+             
+            <div class="div3">
+                <div class="fiveEightCookies">
+                    <div class="pinkDiv">
+                        <div class="rectangle"></div>
+                        <img class="pink" src="images/pink.png" />
+                        <div class="productName">Pink Sugar</div>
+                        <div class="desc">An all-time favorite—a vanilla sugar cookie topped with a perfect pink swoop of real almond frosting.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" />
+                    </div>
+                    <div class="chocoStrawDiv">
+                        <div class="rectangle"></div>
+                        <img class="chocoStraw" src="images/chocoStraw.png" />
+                        <div class="productName">Chocolate Strawberry</div>
+                        <div class="desc">A chocolate cookies & cream cookie smothered with fresh strawberry cream cheese frosting and a drizzle of semi-sweet chocolate.</div>
+                        <img class="arrowhead" src="images/arrowhead.png"/>
+                    </div>
+                    <div class="lemonDiv">
+                        <div class="rectangle"></div>
+                        <img class="lemon" src="images/lemon.png" />
+                        <div class="productName">Lemon Cheesecake</div>
+                        <div class="desc">A buttery graham cracker cookie topped with a creamy cheesecake frosting, a tart punch of lemon curd, and a fresh lemon slice.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" />
+                    </div>
+                    <div class="berryDiv">
+                        <div class="rectangle"></div>
+                        <img class="berry" src="images/berry.png" />
+                        <div class="productName">Berries and Cream</div>
+                        <div class="desc">A tango of strawberries and blueberries, topped with cool whipped cream and a smothering of blueberry topping.</div>
+                        <img class="arrowhead" src="images/arrowhead.png" />
+                    </div>
+                </div>
+                
+                <button class="btnOrder2"id ="btn_Order" onclick="openPageOrderNow()">Order Now</button>
+                <img class="strawberry" src="images/strawberry.png" />
+            </div>
+    
+            <div class="div4">
+                <div class="h4Container">
+                    <img class="brownStar14" src="images/brownStar.png" />
+                    <div class="header4">Our little backstory</div>
+                    <img class="brownStar24" src="images/brownStar.png" />
+                </div>
+                <div class="desc4">
+                    BinJin Cookies was founded by the couple Bin and Jin, blending Jin’s passion for baking with Bin’s knack for business. Jin crafted unique cookie recipes, while Bin managed the shop’s operations and marketing. The cozy shop quickly became a local favorite, known for its welcoming atmosphere and heartwarming treats that reflected the couple’s story and love in every bite.
+                </div>
+                <img class="star24" src="images/star2.png" />
+                <img class="star34" src="images/star3.png" />
+                <img class="heart24" src="images/heart2.png" />
+                <img class="backstory" src="images/backstory.png" />
+                
+              </div>
+              
+              <div class="div5">
+                <div class="h5Container">
+                    <div class="header5">
+                        <span class="headerText">Every cookie is infused with an incredible amount of </span>
+                        <span class="headerSpace"></span>
+                        <span class="headerLove">love</span>
+                    </div>
+                    <div class="desc5">
+                        *BinJin Cookies* is a cozy bakery where every treat tells a story. Founded by Bin and Jin, each cookie is infused with an incredible amount of love and crafted with care.<br/><br/>
+                        Their products are made from the finest ingredients, ensuring each cookie is perfectly balanced in flavor and texture. Every bite reflects the couple’s dedication to quality and passion for baking, making each visit a heartwarming experience.
+                    </div>
+                </div>
+                <div class="div5ElementsContainer">
+                    <img class="clouds5" src="images/clouds5.png">
+                    <img class="cookies5" src="images/cookies5.png" />
+                    <img class="bear5" src="images/bear.png" />
+                    <img class="cookie5" src="images/cookie.png" />
+                    <img class="star25" src="images/star2.png" />
+                    <img class="heart15" src="images/heart1.png" />
+                </div>
+                <img class="heart25" src="images/heart2.png" />
+                <img class="star15" src="images/star1.png" />
+              </div>
+    
+              <div class="div6">
+                <div class="h6Container">
+                    <img class="brownStar16" src="images/brownStar.png" />
+                    <div class="header6">What customers say</div>
+                    <img class="brownStar26" src="images/brownStar.png" />
+                </div>
+                <div class="reviewContainer">
+                    <div class="review1">
+                        <div class="rectangle1"></div>
+                        <div class="marcus">
+                          <span class="reviewText">“Hands down, the best cookies in town! The quality is unmatched, and you can tell that Bin and Jin put their hearts into their work. I always leave with a smile (and a full box)!”<br/><br/></span>
+                          <span class="reviewAuthor">– Marcus T.</span>
+                        </div>
+                        <img class="stars1" src="images/5stars.png" />
+                      </div>
+                      <div class="review2">
+                        <div class="rectangle2"></div>
+                        <div class="ana">
+                          <span class="reviewText">“I’ve never tasted cookies this good! The texture is perfect, and the flavors are rich without being overwhelming. You can feel the care and attention to detail in every bite.”<br/><br></span>
+                          <span class="reviewAuthor">– Ana P.</span>
+                        </div>
+                        <img class="stars2" src="images/5stars.png" />
+                      </div>
+                      <div class="review3">
+                        <div class="rectangle3"></div>
+                        <div class="emily">
+                          <span class="reviewText">“I’m a cookie lover, and BinJin Cookies has set a new standard for me. Every cookie is baked to perfection, and it’s clear that they use top-quality ingredients.”<br/><br/></span>
+                          <span class="reviewAuthor">– Emily S.</span>
+                        </div>
+                        <img class="stars3" src="images/5stars.png" />
+                      </div>
+                </div>
+                
+              </div>
+              
+              <div class="div7">
+                <div class="h7Container">
+                    <img class="brownStar17" src="images/brownStar.png" alt="Star decoration" />
+                    <div class="header7">FAQs</div>
+                    <img class="brownStar27" src="images/brownStar.png" alt="Star decoration" />
+                </div>
+                <!-- FAQ Container -->
+                <!-- FAQ Container -->
+                <div class="faq-container">
+                    <div class="faq1" onclick="expandRectangle(this)">
+                        <div class="question1">What makes BinJin Cookies special?</div>
+                        <img class="arrowDown1" src="images/arrowDown.png" alt="Arrow pointing down" />
+                    </div>
+
+                    <div class="faq2" onclick="expandRectangle(this)">
+                        <div class="question2">What are your store hours?</div>
+                        <img class="arrowDown2" src="images/arrowDown.png" alt="Arrow pointing down" />
+                    </div>
+
+                    <div class="faq3" onclick="expandRectangle(this)">
+                        <div class="question3">Can I place a custom order for special occasions?</div>
+                        <img class="arrowDown3" src="images/arrowDown.png" alt="Arrow pointing down" />
+                    </div>
+
+                    <div class="faq4" onclick="expandRectangle(this)">
+                        <div class="question4">Do you deliver?</div>
+                        <img class="arrowDown4" src="images/arrowDown.png" alt="Arrow pointing down" />
+                    </div>
+
+                    <div class="faq5" onclick="expandRectangle(this)">
+                        <div class="question5">Are your cookies made fresh daily?</div>
+                        <img class="arrowDown5" src="images/arrowDown.png" alt="Arrow pointing down" />
+                    </div>
+                </div>
+
+            </div>
+            
+              
+              <div class="div8">
+                <div class="header8">Get In Touch</div>
+                <img class="div8Bg" src="images/div8BG.png" />
+              </div>
+              
+              <div class="div9">
+                <div class="h9d9Container">
+                    <div class="h9Container">
+                        <div class="header9">Indulge in the sweetest moments</div>
+                    </div>
+                    <div class="desc9Container">
+                        <div class="desc9">
+                            <span class="storeAddress">Store Address:<br/></span>
+                            <span class="storeDetails">BinJin Cookies<br/>123 Cookie Lane<br/>Sweetville, CA 90210<br/><br></span>
+                            <span class="contactUs">Contact Us:<br/></span>
+                            <span class="contactDetails">Phone: (555) 123-4567<br/>Email: info@binjincookies.com</span>
+                          </div>
+                          <div class="iconContainers">
+                            <a href=""><img class="fb" src="images/fb.png" /></a>
+                            <a href=""><img class="ig" src="images/ig.png" /></a>
+                            <a href=""><img class="whatsapp" src="images/whatsapp.png" /></a>
+                          </div>
+                          
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="footer">© 2024 BinJin. All Rights Reserved.</div>
+              </div>
+        </div>
+    </body>
+</html> 

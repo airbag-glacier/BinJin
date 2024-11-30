@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BinJin Cookies</title>
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+        <script type="text/javascript" src="binjin.js"></script>
+    <style>
+        @font-face {
+            font-family: 'CurlyCandy';
+            src: url('font/CurlyCandy.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'ComicBold';
+            src: url('font/ComicBold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'ComicRegular';
+            src: url('font/ComicRegular.ttf') format('truetype');
+        }
+        
+        body {
+            background-color: #FEF7E7;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+
+        /* div1 */
+        .div1 {
+            width: 100%;
+            height: 768px;
+            position: relative;
+            background: #FFE4CE;
+        }
+
+        .clouds {
+            width: 100%;
+            height: 768px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .name {
+            width: 721px;
+            height: 188px;
+            position: absolute;
+            left: 568px;
+            top: 215px;
+            color: #68400A;
+            font-size: 68px;
+            font-family: 'CurlyCandy';
+            font-weight: 400;
+            line-height: 100px;
+            word-wrap: break-word;
+        }
+
+        .desc1 {
+            width: 689px;
+            height: 126px;
+            position: absolute;
+            left: 568px;
+            top: 411px;
+            color: #68400A;
+            font-size: 28px;
+            font-family: 'ComicRegular';
+            font-weight: 400;
+            word-wrap: break-word;
+            
+        }
+
+        .desc {
+            width: 219px;
+            height: 63px;
+            position: absolute;
+            left: 568px;
+            top: 141px;
+            color: #68400A;
+            font-size: 28px;
+            font-family: 'ComicRegular';
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .btnOrder {
+            width: 187px;
+            height: 58px;
+            position: absolute;
+            left: 84vw;
+            top: 35px;
+            background: #F86B87;
+            color: white;
+            font-family: 'ComicBold';
+            border-radius: 30px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            cursor:pointer;
+        }
+
+        .home {
+            width: 68px;
+            height: 68px;
+            position: absolute;
+            left: 43px;
+            top: 25px;
+            cursor: pointer;
+        }
+
+        .image {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 80px;
+            top: 152px;
+            animation: rotate360 15s linear infinite;
+        }
+
+        @keyframes rotate360 {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+        }
+        
+
+        /* div2 */
+        .div2 {
+            width: 100%;
+            height: 768px;
+            padding: 73px 83px;
+            background: #FEF7E7;
+            display: inline-flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 48px;
+        }
+
+        .allergy,.nutri {
+            width: 576px;
+            height: 622px;
+            position: relative;
+            left: -80px;
+            top: 90px;
+        }
+
+        .rectangle1, .rectangle2 {
+            width: 576px;
+            height: 622px;
+            position: absolute;
+            background: white;
+            border-radius: 30px;
+            border: 1px solid #FFE4CE;
+        }
+
+        .allergyInformation, .nutritionInformation {
+            position: absolute;
+            left: 41px;
+            top: 56px;
+            color: #68400A;
+            font-size: 32px;
+            font-family: 'ComicBold';
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .allergyDesc {
+            width: 493px;
+            height: 435px;
+            position: absolute;
+            left: 41px;
+            top: 131px;
+            color: #68400A;
+            font-size: 23px;
+            font-family: 'ComicRegular';
+            font-weight: 400;
+            word-wrap: break-word;
+        }
+
+        .line1, .line2 {
+            width: 492.01px;
+            position: absolute;
+            left: 41.99px;
+            top: 119.30px;
+            border: 1px solid #68400A;
+            }
+
+        .nutriImage {
+            width: 200px;
+            height: 383.36px;
+            position: absolute;
+            left: 188px;
+            top: 158px;
+        }
+
+    </style>
+    </head>
+
+    <body>
+        <div class="div1">
+            <img class="clouds" src="images/clouds5.png" />
+            <div class="name">Semi Sweet Chocolate Chunk</div>
+            <div class="desc1">Chocolate chip, but make it chunky—a delicious cookie filled with irresistible semi-sweet chocolate chunks and a sprinkle of flaky sea salt.</div>
+            <div class="desc">Served Warm</div>
+            <div class="btnOrder" onclick="openPageOrderNow()">Order Now</div>
+            <img class="home" src="images/home.png" onclick="returnToLandingPage()">
+            <img class="image" src="images/classic.png" />
+          </div>
+          
+          <div class="div2">    
+            <div class="allergy">
+              <div class="rectangle1"></div>
+              <div class="allergyInformation">Allergy Information</div>
+              <div class="allergyDesc">
+                <span><br>Contains: Milk, Wheat, Egg, Soy<br/><br></span>
+                <span>
+                  Our desserts are made onsite and may come into contact with different allergens during production. Please be advised that any of our products may contain allergens including peanuts, tree nuts, milk, eggs, wheat, soy, and sesame. <br><br>
+                  For additional nutritional information, please visit crumblcookies.com/nutrition. <br><br>
+                  2,000 calories a day is used for general nutrition advice, but calorie needs may vary. <br><br>
+                  *Calorie counts are per serving. Serving size varies based on product.
+                </span>
+              </div>
+              <div class="line1"></div>
+            </div>
+          
+            <div class="nutri">
+              <div class="rectangle2"></div>
+              <div class="nutritionInformation">Nutrition Information</div>
+              <div class="line2"></div>
+              <img class="nutriImage" src="images/nutriClassic.png" />
+            </div>
+          </div>
+    </body>
+</html>

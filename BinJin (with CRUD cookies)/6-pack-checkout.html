@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="checkout.css">
+    <title>Check Out</title>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="./binjin.js"
+    ></script>
+    <script>
+      setNums(6);
+    </script>
+
+  </head>
+  <body>
+    <div class="container1">
+      <div class="divHome">
+        <img
+          class="home"
+          src="images/home.png"
+          onclick="returnToLandingPage()"
+        />
+      </div>
+      <div class="divBinJin">BinJin</div>
+    </div>
+    <div class="container2">
+      <div class="divBoxMockup"></div>
+    </div>
+    <div class="container3">
+      <form>
+        <p id="nSelecCookies">Select 6 cookies</p>
+        <p id="remainingCookiesTitle">Remaining Cookies:</p>
+        <p id="remainingCookiesContent"></p>
+        <div class="classic">
+          <h6>
+            <img class="classicIcon" src="images/classic.png" />Classic Cookie
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie0"
+              value="-"
+              onclick="sub(0);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie0"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie0Add"
+              value="+"
+              onclick="add(0);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="pntButter">
+          <h6>
+            <img class="classicIcon" src="images/peanut.png" />Classic Peanut
+            Butter
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie1"
+              value="-"
+              onclick="sub(1);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie1"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie1Add"
+              value="+"
+              onclick="add(1);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="oatRaisin">
+          <h6>
+            <img class="classicIcon" src="images/oatmeal.png" />Oatmeal Raisin
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie2"
+              value="-"
+              onclick="sub(2);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie2"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie2Add"
+              value="+"
+              onclick="add(2);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="smrBrownie">
+          <h6>
+            <img class="classicIcon" src="images/smores.png" />Smores Brownie
+            Cookie
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie3"
+              value="-"
+              onclick="sub(3);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie3"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie3Add"
+              value="+"
+              onclick="add(3);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="pnkSugar">
+          <h6><img class="classicIcon" src="images/pink.png" />Pink Sugar</h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie4"
+              value="-"
+              onclick="sub(4);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie4"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie4Add"
+              value="+"
+              onclick="add(4);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="chStrawberry">
+          <h6>
+            <img class="classicIcon" src="images/chocoStraw.png" />Chocolate
+            Strawberry
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie5"
+              value="-"
+              onclick="sub(5);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie5"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie5Add"
+              value="+"
+              onclick="add(5);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="lemCheesecake">
+          <h6>
+            <img class="classicIcon" src="images/lemon.png" />Lemon Cheesecake
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie6"
+              value="-"
+              onclick="sub(6);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie6"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie6Add"
+              value="+"
+              onclick="add(6);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+        <div class="berCream">
+          <h6>
+            <img class="classicIcon" src="images/berry.png" />Berries and Cream
+          </h6>
+          <div class="quantifiers">
+            <input
+              type="button"
+              class="btnCookieSub"
+              id="btnCookie7"
+              value="-"
+              onclick="sub(7);print_nSelectCookies()"
+            />
+            <input
+              type="number"
+              class="numCookie"
+              id="numCookie7"
+              value="0"
+              disabled
+            />
+            <input
+              type="button"
+              class="btnCookieAdd"
+              id="btnCookie7Add"
+              value="+"
+              onclick="add(7);print_nSelectCookies()"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="divCart">
+      <div class="divAddToCart" onclick="showCart()">Add to Cart</div>
+      <div class="returnOrderNow" onclick="openPageOrderNow()">
+        Return to Order Page<a href="orderNowPage.html"></a>
+      </div>
+    </div>
+
+    <div class="modal-overlay" onclick="hideModal()"></div>
+    <div class="modal">
+      <h2>Customer Details</h2>
+      Name:
+      <input type="text" id="customer-name" placeholder="Enter name " /> Contact
+      No.:
+      <input
+        type="text"
+        id="contact-number"
+        placeholder="Enter contact number "
+      />
+      Payment Reference No.:
+      <input
+        type="text"
+        id="payment-reference"
+        placeholder="Enter reference number "
+      />
+      Branch:
+      <input type="text" id="branch-location" placeholder="Enter branch " />
+      Pickup Time:
+      <input type="text" id="pickup-time" placeholder="Enter pickup time " />
+      <button class="close-modal" onclick="hideModal()">Close</button>
+      <button class="confirm-modal" onclick="hideModal(); handleOrder(); openReceipt()">
+        Confirm
+      </button>
+    </div>
+
+    <div class="cartModal">
+      <h2>Your Cart</h2>
+      <h3>Box:</h3>
+      <button class="closeCart" onclick="hideCart()">Close</button>
+      <button class="confirmCart" onclick="showModal()">Confirm</button>
+    </div>
+
+    <div class="modal-overlay" onclick="hideModal()"></div>
+    <div class="receipt-Modal">
+      <h2>Your receipt:</h2>
+      <textarea cols="20" rows="20" disabled></textarea>
+      <br>
+      <button class="close-receipt" onclick="closeReceipt()">Close</button>
+    </div>
+    
+    <div class="cartButton" onclick="showCart1()"><img class="shoppingCart" src="images\shopping_cart_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"></div>
+    <script src="./pack-checkout.js"></script>
+  </body>
+  </body>
+</html>
