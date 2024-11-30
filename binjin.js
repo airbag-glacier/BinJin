@@ -3,7 +3,7 @@ var orderCookiePage;
 var currentNumberOfCookies;
 const cookies3 = [];
 const cookies6 = [];
-const cookies12 =[];
+const cookies12 = [];
 const cartLIst = [];
 
 const makeOrder = async (
@@ -15,7 +15,7 @@ const makeOrder = async (
   pickup_time,
   cookiesList
 ) => {
-  fetch("http://localhost/BinJinCookies/includes/orders/create.php", {
+  fetch("http://localhost/BinJin/includes/orders/create.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -94,20 +94,18 @@ function returnToLandingPage() {
   window.location.href = "index.html";
 }
 
-function openReceipt(){
-  console.log("openReceipt called"); 
+function openReceipt() {
+  console.log("openReceipt called");
   document.querySelector(".receipt-Modal").style.display = "block";
   document.querySelector(".modal-overlay").style.display = "block";
   document.querySelector(".cartModal").style.display = "none";
   displayReceiptModal();
 }
 
-
-function closeReceipt(){
+function closeReceipt() {
   window.location.href = "index.html";
   document.querySelector(".receipt-Modal").style.display = "none";
   document.querySelector(".modal-overlay").style.display = "none";
-  
 }
 function showModal() {
   document.querySelector(".modal").style.display = "block";
@@ -130,6 +128,18 @@ function displayReceiptModal() {
   // Retrieve allBoxes from localStorage
   const allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
 
+  let totalPayment = 0;
+
+  for (let i = 0; i < allBoxes.length; i++) {
+    if (allBoxes[i].boxType === 3) {
+      totalPayment += 100;
+    } else if (allBoxes[i].boxType === 6) {
+      totalPayment += 190;
+    } else {
+      totalPayment += 380;
+    }
+  }
+
   // Format customer details
   let receiptText = `Customer Details:\n`;
   receiptText += `Name: ${customerName}\n`;
@@ -137,6 +147,7 @@ function displayReceiptModal() {
   receiptText += `Reference Number: ${referenceNumber}\n`;
   receiptText += `Branch Location: ${branchLocation}\n`;
   receiptText += `Pickup Time: ${pickupTime}\n\n`;
+  receiptText += `Total Payment: ${totalPayment}\n\n`;
 
   // Format box and cookie details
   receiptText += `Order Details:\n`;
@@ -160,14 +171,37 @@ function displayReceiptModal() {
   document.querySelector(".modal-overlay").style.display = "block";
 }
 
-
 function handleOrder() {
   const customerName = document.getElementById("customer-name");
   const contactNumber = document.getElementById("contact-number");
   const paymentReference = document.getElementById("payment-reference");
   const branchLocation = document.getElementById("branch-location");
   const pickupTime = document.getElementById("pickup-time");
-  const cookies = ["Classic", "Classic", "Oatmeal"]; //iformat niyo ng ganito yung cookies
+
+  const cookies = [];
+
+  const cart = JSON.parse(localStorage.getItem("allBoxes"));
+
+  // Loop over each box in the data
+  cart.forEach((box) => {
+    if (Array.isArray(box.cookies)) {
+      cookies.push(...box.cookies);
+    }
+  });
+
+  let totalPayment = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].boxType === 3) {
+      totalPayment += 100;
+    } else if (cart[i].boxType === 6) {
+      totalPayment += 190;
+    } else {
+      totalPayment += 380;
+    }
+  }
+
+  //iformat niyo ng ganito yung cookies
   // "Classic"
   // "Peanut"
   // "Oatmeal"
@@ -177,11 +211,10 @@ function handleOrder() {
   // "Lemon"
   // "Berries"
 
-
   const success = makeOrder(
     customerName.value,
     contactNumber.value,
-    200, 
+    totalPayment,
     paymentReference.value,
     branchLocation.value,
     pickupTime.value,
@@ -231,8 +264,9 @@ function print_nSelectCookies() {
 // Store cookies by box type
 function storeCookiesOnAdd() {
   // Retrieve the cookie counts from the input fields
-  const counts = Array.from({ length: 8 }, (_, i) =>
-    parseInt(document.getElementById(`numCookie${i}`).value) || 0
+  const counts = Array.from(
+    { length: 8 },
+    (_, i) => parseInt(document.getElementById(`numCookie${i}`).value) || 0
   );
 
   // Define the cookie types
@@ -259,6 +293,7 @@ function storeCookiesOnAdd() {
   }
 
   // Retrieve existing boxes from localStorage
+
   let allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
 
   // Create a new box and add cookies based on counts
@@ -286,7 +321,6 @@ function storeCookiesOnAdd() {
   alert("Cookies successfully added to the cart!");
 }
 
-
 function removeCookie(cookie) {
   let selectedCookies;
 
@@ -301,8 +335,14 @@ function removeCookie(cookie) {
   // Ensure we have cookies to remove
   if (selectedCookies.length > 0) {
     const cookieOptions = [
-      "Classic", "Peanut", "Oatmeal", "Smores",
-      "Pink Sugar", "Choco Straw", "Lemon", "Berries"
+      "Classic",
+      "Peanut",
+      "Oatmeal",
+      "Smores",
+      "Pink Sugar",
+      "Choco Straw",
+      "Lemon",
+      "Berries",
     ];
 
     // Remove the specific cookie from the array
@@ -312,7 +352,10 @@ function removeCookie(cookie) {
     }
 
     // Update localStorage
-    localStorage.setItem(`cookies${orderCookiePage}`, JSON.stringify(selectedCookies));
+    localStorage.setItem(
+      `cookies${orderCookiePage}`,
+      JSON.stringify(selectedCookies)
+    );
   } else {
     console.log("No cookies to remove.");
   }
@@ -356,7 +399,6 @@ function displayAllCookies() {
     modalList.appendChild(boxItem);
   });
 }
-
 
 function deleteBox(boxIndex) {
   let allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
@@ -444,42 +486,42 @@ function sub(cookie) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
       const num = document.getElementById("numCookie2");
       num.value = parseInt(num.value) - 1;
-        removeCookie(cookie);
+      removeCookie(cookie);
     }
   } else if (cookie == 3) {
     if (document.getElementById("numCookie3").value != 0) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
       const num = document.getElementById("numCookie3");
       num.value = parseInt(num.value) - 1;
-        removeCookie(cookie);
+      removeCookie(cookie);
     }
   } else if (cookie == 4) {
     if (document.getElementById("numCookie4").value != 0) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
       const num = document.getElementById("numCookie4");
       num.value = parseInt(num.value) - 1;
-        removeCookie(cookie);
+      removeCookie(cookie);
     }
   } else if (cookie == 5) {
     if (document.getElementById("numCookie5").value != 0) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
       const num = document.getElementById("numCookie5");
       num.value = parseInt(num.value) - 1;
-        removeCookie(cookie);
+      removeCookie(cookie);
     }
   } else if (cookie == 6) {
     if (document.getElementById("numCookie6").value != 0) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
       const num = document.getElementById("numCookie6");
       num.value = parseInt(num.value) - 1;
-        removeCookie(cookie);
+      removeCookie(cookie);
     }
   } else {
     if (document.getElementById("numCookie7").value != 0) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
       const num = document.getElementById("numCookie7");
       num.value = parseInt(num.value) - 1;
-        removeCookie(cookie);
+      removeCookie(cookie);
     }
   }
   print_nSelectCookies();

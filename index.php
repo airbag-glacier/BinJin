@@ -35,6 +35,55 @@
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
+            <th>Order ID</th>
+            <th>Date of Purchase</th>
+            <th>Customer Name</th>
+            <th>Contact Number</th>
+            <th>Total Payment</th>
+            <th>Reference Number</th>
+            <th>Branch Location</th>
+            <th>Pickup Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        include 'db_connect.php';
+
+        // Read orders data
+        $sql = "SELECT * FROM orders";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row['order_id'] . "</td>";
+                echo "<td>" . $row['order_date_of_purchase'] . "</td>";
+                echo "<td>" . $row['order_customer_name'] . "</td>";
+                echo "<td>" . $row['order_contact_number'] . "</td>";
+                echo "<td>" . $row['order_total_payment'] . "</td>";
+                echo "<td>" . $row['order_reference_number'] . "</td>";
+                echo "<td>" . $row['order_branch_location'] . "</td>";
+                echo "<td>" . $row['order_pickup_time'] . "</td>";
+                echo "<td>
+                        <a href='update.php?order_id=" . $row['order_id'] . "' class='btn btn-primary btn-sm'>Update</a>
+                        <a href='delete.php?order_id=" . $row['order_id'] . "' class='btn btn-danger btn-sm'>Delete</a>
+                      </td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='9'>No orders found</td></tr>";
+        }
+
+        $conn->close();
+        ?>
+    </tbody>
+</table>
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
             <th>Cookie ID</th>
             <th>Flavor ID</th>
             <th>Order ID</th>
