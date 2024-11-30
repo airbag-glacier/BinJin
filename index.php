@@ -43,6 +43,7 @@
             <th>Reference Number</th>
             <th>Branch Location</th>
             <th>Pickup Time</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -65,6 +66,12 @@
                 echo "<td>" . $row['order_reference_number'] . "</td>";
                 echo "<td>" . $row['order_branch_location'] . "</td>";
                 echo "<td>" . $row['order_pickup_time'] . "</td>";
+                if ($row['order_status'] == "0") {
+                    echo "<td>Pending</td>";
+                } else {
+                    echo "<td>Done</td>";
+                }
+                
                 echo "<td>
                         <a href='update.php?order_id=" . $row['order_id'] . "' class='btn btn-primary btn-sm'>Update</a>
                         <a href='delete.php?order_id=" . $row['order_id'] . "' class='btn btn-danger btn-sm'>Delete</a>
