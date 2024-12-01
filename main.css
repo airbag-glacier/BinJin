@@ -355,40 +355,16 @@ display: none;
 /* div2 */
 
 .div2 {
-display: flex;
-position: relative;
-justify-content: center; /* Center vertically within the container */
-align-items: center; /* Center horizontally */
-width: 100vw;
-height: auto; /* Adjust height based on content */
-background: #FEF7E7;
-padding-bottom: 100px; /* Space at the bottom to avoid clipping */
-flex-wrap: wrap; /* Allow elements to wrap to the next line on smaller screens */
-gap: 20px; /* Add space between items */
-flex-direction: column;
-}
-
-
-
-/* Positioning for each Div */
-.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
-width: 260px;
-height: 396px;
-background-color: white;
-border-radius: 30px;
-border: 1px solid #FFE4CE;
-position: relative;
-box-sizing: border-box;
-}
-
-/* Animation for the product images */
-.classic, .peanut, .oatmeal, .smores {
-width: 221px;
-height: 220px;
-position: absolute;
-left: 18px;
-top: 27px;
-animation: rotate360 20s linear infinite;
+    display: flex;
+    position: relative;
+    justify-content: center; /* Center vertically within the container */
+    align-items: center; /* Center horizontally */
+    width: 100vw;
+    height: auto; /* Adjust height based on content */
+    background: #FEF7E7;
+    padding-bottom: 100px; /* Space at the bottom to avoid clipping */
+    flex-wrap: wrap; /* Allow elements to wrap to the next line on smaller screens */
+    flex-direction: column;
 }
 
 /* Text and description styling */
@@ -426,80 +402,6 @@ left: 211px;
 top: 347px;
 cursor: pointer;
 }
-
-/* Media queries for responsive behavior */
-
-/* For tablets and smaller screens */
-@media (max-width: 768px) {
-.div2 {
-    flex-direction: column; /* Stack divs vertically */
-    align-items: center; /* Center the items */
-    gap: 30px; /* Add more space between items */
-}
-
-.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
-    width: 90%; /* Make the product divs take up 90% of the container width */
-    height: auto; /* Adjust height for content */
-}
-
-.classic, .peanut, .oatmeal, .smores {
-    width: 180px; /* Adjust image size */
-    height: 180px; /* Adjust image size */
-    left: 15px; /* Adjust position */
-}
-
-.productName {
-    font-size: 14px; /* Reduce font size for smaller screens */
-    top: 220px; /* Adjust position */
-}
-
-.desc {
-    font-size: 10px; /* Reduce font size */
-    top: 250px; /* Adjust position */
-}
-
-.arrowhead {
-    width: 20px;
-    height: 20px;
-    left: 120px; /* Adjust the arrow position */
-}
-}
-
-/* For mobile screens */
-@media (max-width: 480px) {
-.div2 {
-    flex-direction: column; /* Stack divs vertically */
-    align-items: center; /* Center the items */
-}
-
-.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
-    width: 100%; /* Take up full width */
-    height: auto;
-}
-
-.classic, .peanut, .oatmeal, .smores {
-    width: 150px; /* Smaller image size */
-    height: 150px; /* Smaller image size */
-    left: 10px; /* Adjust position */
-}
-
-.productName {
-    font-size: 12px; /* Further reduce font size */
-    top: 180px; /* Adjust position */
-}
-
-.desc {
-    font-size: 8px; /* Reduce font size */
-    top: 210px; /* Adjust position */
-}
-
-.arrowhead {
-    width: 18px;
-    height: 18px;
-    left: 100px; /* Adjust arrow position for mobile */
-}
-}
-
 
 .brownStar1, .brownStar2 {
 width: 41px;
@@ -605,80 +507,83 @@ flex-wrap: wrap; /* Allow elements to wrap to the next line on smaller screens *
 flex-direction: column;
 }
 
+
 /* General Styles */
 .fiveEightCookies, .onefourCookies {
-width: 100vw;
-display: flex;
-position: relative;
-align-items: center; /* Center items vertically */
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center; /* Center items horizontally */
-gap: 50px;
-padding: 20px;
+    max-width: 1250px; /* Control the max width */
+    width: 100%; /* Let the container take full width of its parent */
+    display: flex;
+    position: relative;
+    align-items: center; /* Center items vertically */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    padding: 0 15px; /* Add padding to prevent overflow on small screens */
 }
 
 /* Large Screens (Desktops) */
 @media (min-width: 1200px) {
-.fiveEightCookies, .onefourCookies {
-justify-content: space-around; /* Spread items out evenly */
-}
+    .fiveEightCookies, .onefourCookies {
+        justify-content: space-around; /* Spread items out evenly */
+    }
 }
 
 /* Medium Screens (Tablets) */
 @media (max-width: 1199px) and (min-width: 768px) {
-.fiveEightCookies, .onefourCookies {
-justify-content: space-evenly; /* Slightly tighter spacing */
-gap: 30px; /* Reduce the gap for smaller screens */
-}
+    .fiveEightCookies, .onefourCookies {
+        justify-content: space-evenly; /* Slightly tighter spacing */
+        gap: 30px; /* Adjust the gap for smaller screens */
+    }
 }
 
 /* Small Screens (Phones) */
 @media (max-width: 767px) {
-.fiveEightCookies, .onefourCookies {
-flex-direction: column; /* Stack items vertically */
-align-items: center; /* Center items horizontally */
-gap: 20px; /* Adjust the gap for stacking */
-}
-
+    .fiveEightCookies, .onefourCookies {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        gap: 20px; /* Adjust the gap for stacking */
+        padding: 0 10px; /* Add padding to reduce space on the sides */
+    }
 }
 
 @media (max-width: 769px) {
-/* Hide images */
-.classic, .peanut, .oatmeal, .smores,
-.pink, .chocoStraw, .lemon, .berry {
-display: none;
+    /* Hide images */
+    .classic, .peanut, .oatmeal, .smores,
+    .pink, .chocoStraw, .lemon, .berry {
+        display: none;
+    }
+
+    /* Ensure divs do not collapse or layer on top of each other */
+    .div2 .classicDiv, .div2 .peanutDiv, .div2 .oatmealDiv, .div2 .smoresDiv,
+    .div3 .pinkDiv, .div3 .chocoStrawDiv, .div3 .lemonDiv, .div3 .berryDiv {
+        width: 90%; /* Make divs take full width */
+        margin: 5px 0; /* Reduced margin to decrease vertical space */
+    }
+
+    /* Adjust inner rectangles */
+    .rectangle {
+        width: 100%; /* Full width of parent div */
+        height: auto; /* Adjust height proportionally */
+    }
+
+    .productName, .desc, .arrowhead {
+        position: static; /* Reset position to flow naturally */
+        margin: 3px 0; /* Reduced margin to reduce space between text elements */
+        text-align: center; /* Center-align text */
+    }
+
+    .arrowhead {
+        display: block; /* Ensure visibility of the arrowhead */
+        margin: 5px auto; /* Reduced margin to center horizontally with less space */
+    }
 }
 
-/* Ensure divs do not collapse or layer on top of each other */
-.classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv,
-.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
-width: auto; /* Make divs take full width */
-margin: 10px 0; /* Add spacing between divs */
-position: relative; /* Ensure position doesn't stack */
-}
-
-/* Adjust inner rectangles */
-.rectangle {
-width: auto; /* Full width of parent div */
-height: auto; /* Adjust height proportionally */
-}
-
-.productName, .desc, .arrowhead {
-position: static; /* Reset position to flow naturally */
-margin: 5px 0; /* Add spacing between text elements */
-text-align: center; /* Center-align text */
-}
-
-.arrowhead {
-display: block; /* Ensure visibility of the arrowhead */
-margin: 10px auto; /* Center horizontally */
-}
-}
 
 
 
-.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+
+
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv, .classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
 width: 260px;
 height: 396px;
 background: white;
@@ -692,7 +597,7 @@ justify-content: center;
 box-sizing: border-box;
 }
 
-.pink, .chocoStraw, .lemon, .berry {
+.pink, .chocoStraw, .lemon, .berry, .classic, .peanut, .oatmeal, .smores {
 width: 221px;
 height: 220.85px;
 position: absolute;
@@ -701,36 +606,10 @@ left: 18px;
 animation: rotate360 20s linear infinite;
 }
 
-.productName {
-width: 190px;
-color: #68400A;
-font-size: 16px;
-font-family: 'ComicBold';
-font-weight: 400;
-word-wrap: break-word;
-text-align: center;
-}
-
-.desc {
-width: 218px;
-height: 52px;
-color: #68400A;
-font-size: 11px;
-font-family: 'ComicRegular';
-font-weight: 400;
-word-wrap: break-word;
-text-align: center;
-}
-
-.arrowhead {
-width: 33px;
-height: 33px;
-cursor: pointer;
-}
 
 /* Make the layout responsive */
 @media (max-width: 768px) {
-.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv, .classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
 width: auto; /* Shrink the width to fit two per row on smaller screens */
 height: auto; /* Allow the height to adjust based on content */
 }
@@ -740,10 +619,10 @@ gap: 15px; /* Adjust the gap for smaller screens */
 }
 
 @media (max-width: 480px) {
-.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv {
+.pinkDiv, .chocoStrawDiv, .lemonDiv, .berryDiv, .classicDiv, .peanutDiv, .oatmealDiv, .smoresDiv {
 width: auto; /* Make each item take up most of the screen width on very small screens */
 }
-.fiveEightCookies {
+.fiveEightCookies, .onefourCookies {
 gap: 10px; /* Reduce the gap further for smaller screens */
 }
 }

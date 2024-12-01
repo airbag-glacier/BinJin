@@ -114,10 +114,12 @@ body {
 /* Styling for text below each box */
 .divBoxText {
     text-align: center;
-    margin-top: 10px;
-    width: auto; /* Ensure it takes full width */
+    margin-top: 5px; 
+    margin-bottom: 0; 
+    width: auto; 
     font-family: "ComicRegular";
     white-space: nowrap;
+    line-height: 0;
 }
 
 .pack3, .pack6, .pack12 {
@@ -135,6 +137,8 @@ body {
     .divBoxesContainer {
         flex-direction: column;
         align-items: center;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     .divBox {
@@ -144,6 +148,8 @@ body {
     .pack3BoxNText, .pack6BoxNText, .pack12BoxNText {
         width: 80%;
         max-width: 800px;  /* Adjust width for smaller screens */
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
