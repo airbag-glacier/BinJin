@@ -269,6 +269,14 @@ body {
   font-family: "ComicBold";
   border-style: groove;
 }
+.modal select {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  font-family: "ComicBold";
+  border-style: groove;
+}
+
 
 .close-modal,
 .closeCart, .close-receipt {

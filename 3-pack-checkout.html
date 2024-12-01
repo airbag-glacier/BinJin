@@ -290,11 +290,22 @@
         required
       />
       Branch:
-      <input type="text" id="branch-location" placeholder="Enter branch " required/>
+      <select id="branch-location" placeholder="Enter Branch" required>
+        <optgroup label="Tarlac State University">
+          <option value="TSU Main Campus">TSU Main Campus</option>
+          <option value="TSU San Isidro Campus">TSU San Isidro Campus</option>
+          <option value="TSU Lucinda Campus">TSU Lucinda Campus</option>
+        </optgroup>
+        <optgroup label="Store Branch">
+          <option value="SM Tarlac">SM Tarlac</option>
+          <option value="WalterMart Capas">WalterMart Capas</option>
+        </optgroup>
+      </select>
+      <br>
       Pickup Time:
-      <input type="text" id="pickup-time" placeholder="Enter pickup time " required/>
+      <input type="time" min="09:00" max="18:00" id="pickup-time" placeholder="Enter pickup time " required/>
       <button class="close-modal" onclick="hideModal()">Close</button>
-      <input type="button" class="confirm-modal" onclick="hideModal(); handleOrder(); openReceipt()" value="Confirm">
+      <button class="confirm-modal" onclick="nonEmpty()">Confirm</button>
     </div>
 
     <div class="cartModal">

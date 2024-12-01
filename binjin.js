@@ -106,11 +106,17 @@ function closeReceipt() {
   window.location.href = "index.html";
   document.querySelector(".receipt-Modal").style.display = "none";
   document.querySelector(".modal-overlay").style.display = "none";
+  removeAllBoxes();
 }
 function showModal() {
-  document.querySelector(".modal").style.display = "block";
-  document.querySelector(".modal-overlay").style.display = "block";
-  document.querySelector(".cartModal").style.display = "none";
+  const allBoxes = JSON.parse(localStorage.getItem("allBoxes"))
+  if(allBoxes.length == 0){
+    alert("You cannot proceed with the transaction, your cart is empty");
+  }else{
+    document.querySelector(".modal").style.display = "block";
+    document.querySelector(".modal-overlay").style.display = "block";
+    document.querySelector(".cartModal").style.display = "none";
+  }
 }
 
 function hideModal() {
@@ -118,14 +124,12 @@ function hideModal() {
   document.querySelector(".modal-overlay").style.display = "none";
 }
 function displayReceiptModal() {
-  // Retrieve customer details (replace with actual variable names if different)
   const customerName = document.getElementById("customer-name").value;
   const contactNumber = document.getElementById("contact-number").value;
   const referenceNumber = document.getElementById("payment-reference").value;
   const branchLocation = document.getElementById("branch-location").value;
   const pickupTime = document.getElementById("pickup-time").value;
 
-  // Retrieve allBoxes from localStorage
   const allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
 
   let totalPayment = 0;
@@ -140,7 +144,6 @@ function displayReceiptModal() {
     }
   }
 
-  // Format customer details
   let receiptText = `Customer Details:\n`;
   receiptText += `Name: ${customerName}\n`;
   receiptText += `Contact Number: ${contactNumber}\n`;
@@ -149,7 +152,6 @@ function displayReceiptModal() {
   receiptText += `Pickup Time: ${pickupTime}\n\n`;
   receiptText += `Total Payment: ${totalPayment}\n\n`;
 
-  // Format box and cookie details
   receiptText += `Order Details:\n`;
   if (allBoxes.length === 0) {
     receiptText += `No boxes added to the order.\n`;
@@ -163,7 +165,6 @@ function displayReceiptModal() {
     });
   }
 
-  // Display the receipt in the modal's textarea
   const receiptTextarea = document.getElementById("txReceipt");
   receiptTextarea.value = receiptText;
 
@@ -263,13 +264,11 @@ function print_nSelectCookies() {
 }
 // Store cookies by box type
 function storeCookiesOnAdd() {
-  // Retrieve the cookie counts from the input fields
   const counts = Array.from(
     { length: 8 },
     (_, i) => parseInt(document.getElementById(`numCookie${i}`).value) || 0
   );
 
-  // Define the cookie types
   const cookieTypes = [
     "Classic",
     "Peanut",
@@ -281,10 +280,8 @@ function storeCookiesOnAdd() {
     "Berries",
   ];
 
-  // Calculate the total number of cookies selected
   const totalCookies = counts.reduce((sum, count) => sum + count, 0);
 
-  // Check if the total matches the box size
   if (totalCookies !== orderCookiePage) {
     alert(
       `Please ensure you select exactly ${orderCookiePage} cookies. You selected ${totalCookies}.`
@@ -292,11 +289,8 @@ function storeCookiesOnAdd() {
     return;
   }
 
-  // Retrieve existing boxes from localStorage
-
   let allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
 
-  // Create a new box and add cookies based on counts
   const newBox = { boxType: orderCookiePage, cookies: [] };
   counts.forEach((count, index) => {
     for (let i = 0; i < count; i++) {
@@ -304,18 +298,14 @@ function storeCookiesOnAdd() {
     }
   });
 
-  // Add the new box to the list
   allBoxes.push(newBox);
 
-  // Update localStorage with the modified allBoxes array
   localStorage.setItem("allBoxes", JSON.stringify(allBoxes));
 
-  // Reset the input fields
   counts.forEach((_, i) => {
     document.getElementById(`numCookie${i}`).value = 0;
   });
 
-  // Reset the current number of cookies
   currentNumberOfCookies = 0;
 
   alert("Cookies successfully added to the cart!");
@@ -332,7 +322,6 @@ function removeCookie(cookie) {
     selectedCookies = cookies12;
   }
 
-  // Ensure we have cookies to remove
   if (selectedCookies.length > 0) {
     const cookieOptions = [
       "Classic",
@@ -345,13 +334,11 @@ function removeCookie(cookie) {
       "Berries",
     ];
 
-    // Remove the specific cookie from the array
     const cookieIndex = selectedCookies.lastIndexOf(cookieOptions[cookie]);
     if (cookieIndex !== -1) {
-      selectedCookies.splice(cookieIndex, 1); // Remove the cookie
+      selectedCookies.splice(cookieIndex, 1); 
     }
 
-    // Update localStorage
     localStorage.setItem(
       `cookies${orderCookiePage}`,
       JSON.stringify(selectedCookies)
@@ -360,8 +347,6 @@ function removeCookie(cookie) {
     console.log("No cookies to remove.");
   }
 }
-
-// Display cookies grouped by box type
 function displayAllCookies() {
   const allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
   const modalList = document.getElementById("cartList");
@@ -402,16 +387,10 @@ function displayAllCookies() {
 
 function deleteBox(boxIndex) {
   let allBoxes = JSON.parse(localStorage.getItem("allBoxes")) || [];
-
-  // Remove the box at the specified index
   if (boxIndex > -1 && boxIndex < allBoxes.length) {
     allBoxes.splice(boxIndex, 1);
   }
-
-  // Update localStorage
   localStorage.setItem("allBoxes", JSON.stringify(allBoxes));
-
-  // Refresh the displayed list
   displayAllCookies();
 }
 
@@ -525,4 +504,25 @@ function sub(cookie) {
     }
   }
   print_nSelectCookies();
+}
+function removeAllBoxes(){
+  localStorage.removeItem("allBoxes");
+}
+
+function nonEmpty(){
+  const customerName = document.getElementById("customer-name");
+  const contactNumber = document.getElementById("contact-number");
+  const paymentReference = document.getElementById("payment-reference");
+  const branchLocation = document.getElementById("branch-location");
+  const pickupTime = document.getElementById("pickup-time");
+  if(customerName.value.length < 0 ||
+    contactNumber.value.length < 10 ||
+    paymentReference.value.length < 9 ||
+    branchLocation.value.length <0 ||
+    pickupTime.value.length < 0
+  ){
+    alert("Please fill-up all the information to complete the transaction");
+  }else{
+    hideModal(); handleOrder(); openReceipt();
+  }
 }
