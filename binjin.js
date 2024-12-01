@@ -517,7 +517,7 @@ function nonEmpty(){
   const pickupTime = document.getElementById("pickup-time");
   if(customerName.value.length < 0 ||
     contactNumber.value.length < 10 ||
-    paymentReference.value.length < 9 ||
+    paymentReference.value.length < 0 ||
     branchLocation.value.length <0 ||
     pickupTime.value.length < 0
   ){
