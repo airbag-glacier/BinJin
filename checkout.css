@@ -14,13 +14,18 @@
   font-family: "ComicRegular";
   src: url("font/ComicRegular.ttf") format("truetype");
 }
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
 body {
   overflow-x: hidden;
   background-color: #f8f2ec;
-  margin: 0;
-  padding: 0;
   width: 100vw;
   height: 100vh;
+  display: flex; 
+  flex-direction: column; 
 }
 .container1 {
   background-color: #ffb9cd;
@@ -64,41 +69,59 @@ body {
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: row; 
-  justify-content: space-between;
-  padding-top: 10px; 
+  flex-direction: row;
+  justify-content: space-between; 
+  padding-top: 10px;
+  align-items: flex-start;
+}
+.leftContainer{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  position: relative;
 }
 .container2 {
   background-color: #ffb9cd;
-  width: 700px; 
+  width: 100%; 
   max-width: 700px; 
-  height: auto; 
+  height: 75vh; 
   position: relative;
   border-radius: 8%;
-  border: 0.5px solid black; 
+  border: 0.5px solid black;
   margin: 10px;
+  padding: 10px;
+  box-sizing: border-box; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.pack3 {
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
 }
 .container3 {
   width: 100%; 
   max-width: 800px; 
-  height: auto; 
+  height: 90vh;
   position: relative;
   font-family: 'ComicBold';
-  letter-spacing: -0.3vh;
+  letter-spacing: -0.2vh;
   font-size: 7vh;
   padding-left: 2%;
   overflow-y: scroll;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 2;
+  padding-bottom: 2;
 }
 .divCart {
   display: flex;
-  position: relative;
+  position: relative; 
+  bottom: 0; 
   flex-direction: row;  
   align-items: center;
   justify-content: space-between;  
-  margin: 20px;
-  height: auto;  
+  margin: 20px; 
+  height: auto; 
 }
 .divAddToCart, .returnOrderNow {
   background-color: #ffb9cd;
@@ -128,12 +151,8 @@ body {
 }
 .selectCookies {
   font-size: 40px;
-  margin: 10px;
-}
-.selectCookies1 {
-  font-size: 40px;
-  margin: 10px;
-  display: inline-block;
+  margin: 0px;
+  margin-bottom: 0;
 }
 .classic,
 .pntButter,
@@ -144,7 +163,7 @@ body {
 .lemCheesecake,
 .berCream {
   border-bottom: 0.5px solid black;
-  height: 8vh;
+  height: 9vh;
   font-size: 40px;
   align-items: center;
   align-self: center;
@@ -152,19 +171,16 @@ body {
   display: flex;
   margin-top: 0;
   margin-bottom: 0;
+  padding: 0px;
 }
 .classicIcon{
   position: relative;
   width: 30px;
   height: 30px;
   margin-right: 10px;
-  top: 2%;
+  background-color: blue;
 }
-.pack3 {
-  width: 100%; /* Makes the image take up 100% of the container's width */
-  height: 100%; /* Ensures the image fills the container's height */
-  object-fit: contain; /* Ensures the aspect ratio is preserved and the image does not overflow */
-}
+
 
 @media screen and (max-width: 809px) {
   .bodyContainer {

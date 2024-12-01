@@ -24,14 +24,23 @@
       <div class="cartButton" onclick="showCart1()"><img class="shoppingCart" src="images\shopping_cart_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"></div>
     </div>
     <div class="bodyContainer">
-      <div class="container2">
-        <img class="pack3" src="images/jinBox3png.png">
+      <div class="leftContainer">
+        <div class="container2">
+          <img class="pack3" src="images/jinBox3png.png">
+        </div>
+        <div class="divCart">
+          <div class="divAddToCart" onclick="showCart()">Add to Cart</div>
+          <div class="returnOrderNow" onclick="openPageOrderNow()">
+            Return to Order Page<a href="orderNowPage.html"></a>
+          </div>
+        </div>
       </div>
+      
       <div class="container3">
         <form>
           <p id="nSelecCookies" class="selectCookies">Select 3 cookies</p>
-          <p id="remainingCookiesTitle" class="selectCookies1">Remaining Cookies:</p>
-          <p id="remainingCookiesContent" class="selectCookies1"></p>
+          <p id="remainingCookiesTitle" class="selectCookies">Remaining Cookies:</p>
+          <p id="remainingCookiesContent" class="selectCookies"></p>
           <div class="classic">
             <h6>
               <img class="classicIcon" src="images/classic.png" />Classic Cookie
@@ -263,12 +272,7 @@
     
     
 
-    <div class="divCart">
-      <div class="divAddToCart" onclick="showCart()">Add to Cart</div>
-      <div class="returnOrderNow" onclick="openPageOrderNow()">
-        Return to Order Page<a href="orderNowPage.html"></a>
-      </div>
-    </div>
+    
 
     <div class="modal-overlay" onclick="hideModal()"></div>
     <div class="modal">
