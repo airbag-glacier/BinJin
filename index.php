@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cookies Database Page</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         @font-face {
@@ -31,7 +31,7 @@
     <h2 class="display-4" style="font-family: 'CurlyCandy';">Cookies Database Page</h2>
 </div>
 
-<!-- Display cookies in a table -->
+
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
@@ -51,7 +51,6 @@
         <?php
         include 'db_connect.php';
 
-        // Read orders data
         $sql = "SELECT * FROM orders";
         $result = $conn->query($sql);
 
@@ -71,12 +70,11 @@
                 } else {
                     echo "<td>Done</td>";
                 }
-                
                 echo "<td>
-                        <a href='update.php?order_id=" . $row['order_id'] . "' class='btn btn-primary btn-sm'>Update</a>
-                        <a href='delete.php?order_id=" . $row['order_id'] . "' class='btn btn-danger btn-sm'>Delete</a>
-                      </td>";
-                echo "</tr>";
+                <a href='deleteOrder.php?order_id=" . $row['order_id'] . "' class='btn btn-danger btn-sm'>Delete</a>
+              </td>";
+        echo "</tr>";
+               
             }
         } else {
             echo "<tr><td colspan='9'>No orders found</td></tr>";
@@ -138,7 +136,7 @@
     <button type="submit" class="btn btn-success">Add Cookie</button>
 </form>
 
-<!-- Bootstrap JS and dependencies -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
