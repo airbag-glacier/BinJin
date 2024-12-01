@@ -40,7 +40,7 @@ body {
 }
 .divBinJin {
   font-family: 'CurlyCandy';
-  font-size: 40px;
+  font-size: 30px;
   align-items: center;
 }
 .divHome {
@@ -61,7 +61,7 @@ body {
   background-color: #ffb9cd; 
   border: solid black 1px; 
   border-radius: 50%; 
-  padding: 10px 10px; 
+  padding: 5px 5px; 
   cursor: pointer; 
   margin-right: 20px;
 }
@@ -84,7 +84,7 @@ body {
   background-color: #ffb9cd;
   width: 100%; 
   max-width: 700px; 
-  height: 75vh; 
+  height: 70vh; 
   position: relative;
   border-radius: 8%;
   border: 0.5px solid black;
@@ -126,7 +126,7 @@ body {
 .divAddToCart, .returnOrderNow {
   background-color: #ffb9cd;
   width: 200px;
-  height: 100px;
+  height: 12vh;
   font-family: 'ComicBold';
   letter-spacing: -0.3vh;
   font-size: 30px;
@@ -150,7 +150,7 @@ body {
   scale: 0.8;
 }
 .selectCookies {
-  font-size: 40px;
+  font-size: 4vh;
   margin: 0px;
   margin-bottom: 0;
 }
