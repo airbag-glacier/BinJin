@@ -71,6 +71,7 @@
                     echo "<td>Done</td>";
                 }
                 echo "<td>
+                <a href='updateOrder.php?order_id=" . $row['order_id'] . "' class='btn btn-primary btn-sm'>Update</a>
                 <a href='deleteOrder.php?order_id=" . $row['order_id'] . "' class='btn btn-danger btn-sm'>Delete</a>
               </td>";
         echo "</tr>";
