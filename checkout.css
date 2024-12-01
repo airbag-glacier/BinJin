@@ -17,29 +17,108 @@
 body {
   overflow-x: hidden;
   background-color: #f8f2ec;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
-
-.divBinJin {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  font-family: "CurlyCandy";
+.container1 {
   background-color: #ffb9cd;
-  width: 100%;
-  height: 12vh;
-  font-size: 8vh;
+  position: relative;
+  display: flex; 
+  flex-direction: column; 
   align-items: center;
+  justify-content: space-between; 
+  box-sizing: border-box; 
   box-shadow: 0px 2.53px 0px 3px black;
+  flex-direction: row;
 }
-
+.divBinJin {
+  font-family: 'CurlyCandy';
+  font-size: 40px;
+  align-items: center;
+}
 .divHome {
-  height: 12vh;
-  position: absolute;
+  height: 50px; 
+  width: 50px; 
+  position: relative;
   display: flex;
   align-items: center;
-  left: 5px;
+  justify-content: center;
 }
-
+.divHome img {
+  width: 50px; 
+  height: 50px;
+  object-fit: contain;
+}
+.cartButton {
+  position: relative; 
+  background-color: #ffb9cd; 
+  border: solid black 1px; 
+  border-radius: 50%; 
+  padding: 10px 10px; 
+  cursor: pointer; 
+  margin-right: 20px;
+}
+.bodyContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  padding-top: 10px; 
+}
+.container2 {
+  background-color: #ffb9cd;
+  width: 700px; 
+  max-width: 700px; 
+  height: auto; 
+  position: relative;
+  border-radius: 8%;
+  border: 0.5px solid black; 
+  margin: 10px;
+}
+.container3 {
+  width: 100%; 
+  max-width: 800px; 
+  height: auto; 
+  position: relative;
+  font-family: 'ComicBold';
+  letter-spacing: -0.3vh;
+  font-size: 7vh;
+  padding-left: 2%;
+  overflow-y: scroll;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.divCart {
+  display: flex;
+  position: relative;
+  flex-direction: row;  
+  align-items: center;
+  justify-content: space-between;  
+  margin: 20px;
+  height: auto;  
+}
+.divAddToCart, .returnOrderNow {
+  background-color: #ffb9cd;
+  width: 200px;
+  height: 100px;
+  font-family: 'ComicBold';
+  letter-spacing: -0.3vh;
+  font-size: 30px;
+  border-radius: 20px;
+  border: solid black 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  padding: 5px;  
+  text-align: center; 
+  white-space: normal; 
+  overflow: hidden; 
+  line-height: 1.4; 
+}
 .home {
   position: relative;
   width: 100%;
@@ -47,43 +126,15 @@ body {
   cursor: pointer;
   scale: 0.8;
 }
-
-.container1 {
-  background-color: #f8f2ec;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: -2px;
-  top: -2px;
+.selectCookies {
+  font-size: 40px;
+  margin: 10px;
 }
-
-.container2 {
-  background-color: #ffb9cd;
-  width: 50%;
-  height: 80vh;
-  position: absolute;
-  top: 15vh;
-  border-radius: 8%;
-  left: 2.5%;
-  border: black 0.5px solid;
+.selectCookies1 {
+  font-size: 40px;
+  margin: 10px;
+  display: inline-block;
 }
-
-.container3 {
-  background-color: #f8f2ec;
-  width: 40.5%;
-  height: 60%;
-  position: absolute;
-  top: 15vh;
-  left: 55%;
-  right: 2.5%;
-  font-family: "ComicBold";
-  letter-spacing: -0.3vh;
-  font-size: 6vh;
-  padding-top: 2%;
-  padding-left: 2%;
-  overflow-y: scroll;
-}
-
 .classic,
 .pntButter,
 .oatRaisin,
@@ -94,102 +145,43 @@ body {
 .berCream {
   border-bottom: 0.5px solid black;
   height: 8vh;
-  font-size: 5vh;
+  font-size: 40px;
   align-items: center;
   align-self: center;
   justify-content: left;
   display: flex;
-  margin-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-
-.divAddToCart {
-  background-color: #ffb9cd;
-  width: 200px;
-  height: 100px;
-  position: absolute;
-  font-family: "ComicBold";
-  letter-spacing: -0.3vh;
-  font-size: 6vh;
-  border-radius: 20px;
-  border: solid black 1px;
-  cursor: pointer;
-  align-content: center;
-  justify-content: center;
-  padding-left: 20px;
-  left: 56%;
-  bottom: 10px; /* Adjust to ensure it's at the bottom */
-}
-
-.returnOrderNow {
-  background-color: #ffb9cd;
-  width: 200px;
-  height: 100px;
-  position: absolute;
-  font-family: "ComicBold";
-  letter-spacing: -0.3vh;
-  font-size: 6vh;
-  border-radius: 20px;
-  border: solid black 1px;
-  cursor: pointer;
-  align-content: center;
-  justify-content: center;
-  padding-left: 20px;
-  left: 78%;
-  bottom: 10px; /* Adjust to ensure it's at the bottom */
-}
-
-.classicIcon {
+.classicIcon{
   position: relative;
   width: 30px;
   height: 30px;
   margin-right: 10px;
   top: 2%;
 }
+.pack3 {
+  width: 100%; /* Makes the image take up 100% of the container's width */
+  height: 100%; /* Ensures the image fills the container's height */
+  object-fit: contain; /* Ensures the aspect ratio is preserved and the image does not overflow */
+}
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 809px) {
+  .bodyContainer {
+      display: flex;
+      flex-direction: column; /* Stack the elements vertically */
+      width: 100%; /* Ensure it uses the full width of the screen */
+  }
+
+  .bodyContainer > * {
+      width: 100%; /* Make child elements responsive */
+      max-width: 100%; /* Prevent them from exceeding screen width */
+  }
+
   .container2 {
-    width: 100%;
-    height: 80vh;
-    position: relative;
-    left: 0;
-    top: 14vh;
-    margin: 10px auto;
-  }
-
-  .container3 {
-    width: 100%;
-    height: auto; /* Ensure it grows with content */
-    position: relative;
-    left: 0;
-    top: 14vh;
-    margin: 10px auto;
-    overflow-y: scroll;
-    padding-bottom: 60px; /* Space for the Add to Cart button */
-  }
-
-  .divAddToCart {
-    position: relative;
-    top: auto;
-    bottom: 0;
-    margin: 20px auto 0;
-    width: 200px;
-    left: 0;
-    margin-top: 40px;
-  }
-
-  .returnOrderNow {
-    position: relative;
-    margin: 20px auto 0;
-    width: 200px;
-    left: 0;
-    margin-top: 40px;
-  }
-
-  .cartModal {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+      margin: 0 auto; /* Center horizontally */
+      width: 90%; /* Optional: Adjust width to fit the smaller screen */
+      max-width: 700px; /* Retain the original maximum width */
   }
 }
 
@@ -302,27 +294,11 @@ body {
   overflow-y: scroll;
 }
 
-.cartButton {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  background-color: #f86f96;
-  border-radius: 100px;
-  padding: 15px 15px;
-  cursor: pointer;
-  z-index: 0;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  
-}
+
 
 .shoppingCart{
   width: 30px;
   height: 30px;
-
-  
-
 }
 .quantifiers {
   position: absolute;
