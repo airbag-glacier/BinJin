@@ -58,10 +58,10 @@ body {
 }
 .cartButton {
   position: relative; 
-  background-color: #ffb9cd; 
-  border: solid black 1px; 
+  background-color: #eb5680; 
+  /*border: solid black 1px; */
   border-radius: 50%; 
-  padding: 5px 5px; 
+  padding: 6px 6px; 
   cursor: pointer; 
   margin-right: 20px;
 }
