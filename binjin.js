@@ -394,7 +394,38 @@ function deleteBox(boxIndex) {
   displayAllCookies();
 }
 
+function displayCookieInBox(orderCookiePage,cookie,func){
+  const imgCookies = [
+    "images/peanut.png",
+    "images/peanut.png",
+    "images/peanut.png",
+    "images/peanut.png",
+    "images/peanut.png",
+    "images/peanut.png",
+    "images/peanut.png",
+    "images/peanut.png"
+  ]
+
+  if(func == "+"){
+    for(i=1;i<=orderCookiePage.length;i++){//1
+      for(j=0;j>imgCookies.length;j++){//0
+        if(cookie == imgCookies[i]){
+          document.getElementById(`cookieSelected${i}`).src = imgCookies[j];
+          break;
+        }
+      }
+    }
+  }else{
+
+  }
+
+  for(i=0; i>imgCookies.length;i++){
+    
+  }
+}
+
 function add(cookie) {
+  var func = "+";
   if (cookie == 0) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
@@ -444,8 +475,10 @@ function add(cookie) {
       num.value = parseInt(num.value) + 1;
     }
   }
+  displayCookieInBox(orderCookiePage,cookie,func)
 }
 function sub(cookie) {
+  var func = "-";
   if (cookie == 0) {
     if (document.getElementById("numCookie0").value != 0) {
       currentNumberOfCookies = currentNumberOfCookies - 1;
