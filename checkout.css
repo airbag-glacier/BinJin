@@ -100,6 +100,27 @@ body {
   height: auto; 
   object-fit: contain; 
 }
+.boxContainer3{
+  position: absolute;
+  margin-top: 10%;
+  height: 20%;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  align-items: center;
+  justify-content: center;
+}
+.cookie-image{
+  width: 70px;
+  height: 70px;
+  animation: rotate360 20s linear infinite;
+  justify-self: center;
+}
+@keyframes rotate360 {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
 .container3 {
   width: 100%; 
   max-width: 800px; 

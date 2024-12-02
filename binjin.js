@@ -394,33 +394,39 @@ function deleteBox(boxIndex) {
   displayAllCookies();
 }
 
-function displayCookieInBox(orderCookiePage,cookie,func){
+function displayCookieInBox(orderCookiePage, cookie, func) {
   const imgCookies = [
-    "images/peanut.png",
-    "images/peanut.png",
-    "images/peanut.png",
-    "images/peanut.png",
-    "images/peanut.png",
-    "images/peanut.png",
-    "images/peanut.png",
-    "images/peanut.png"
-  ]
+    "images/classic.png", // Classic
+    "images/peanut.png", // Peanut
+    "images/oatmeal.png", // Oatmeal
+    "images/smores.png", // Smores
+    "images/pink.png", // Pink Sugar
+    "images/chocoStraw.png", // Choco Straw
+    "images/lemon.png", // Lemon
+    "images/berry.png", // Berries
+  ];
 
-  if(func == "+"){
-    for(i=1;i<=orderCookiePage.length;i++){//1
-      for(j=0;j>imgCookies.length;j++){//0
-        if(cookie == imgCookies[i]){
-          document.getElementById(`cookieSelected${i}`).src = imgCookies[j];
-          break;
-        }
-      }
-    }
-  }else{
-
+  const boxContainer = document.getElementById(`boxContainer${orderCookiePage}`);
+  if (!boxContainer) {
+    console.error(`Box container not found: boxContainer${orderCookiePage}`);
+    return;
   }
 
-  for(i=0; i>imgCookies.length;i++){
-    
+  if (func === "+") {
+    const imgElement = document.createElement("img");
+    imgElement.src = imgCookies[cookie];
+    imgElement.alt = `Cookie ${cookie + 1}`;
+    imgElement.className = "cookie-image";
+    boxContainer.appendChild(imgElement);
+
+  } else if (func === "-") {
+    const cookiesInBox = Array.from(boxContainer.children);
+    const indexToRemove = cookiesInBox.findIndex(
+      (img) => img.src.includes(imgCookies[cookie])
+    );
+    if (indexToRemove !== -1) {
+      cookiesInBox[indexToRemove].remove();
+    }
   }
 }
 
@@ -431,51 +437,58 @@ function add(cookie) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie0");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else if (cookie == 1) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie1");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else if (cookie == 2) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie2");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else if (cookie == 3) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie3");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else if (cookie == 4) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie4");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else if (cookie == 5) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie5");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else if (cookie == 6) {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie6");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   } else {
     if (currentNumberOfCookies != orderCookiePage) {
       currentNumberOfCookies = currentNumberOfCookies + 1;
       const num = document.getElementById("numCookie7");
       num.value = parseInt(num.value) + 1;
+      displayCookieInBox(orderCookiePage, cookie, func);
     }
   }
-  displayCookieInBox(orderCookiePage,cookie,func)
 }
 function sub(cookie) {
   var func = "-";
@@ -537,7 +550,9 @@ function sub(cookie) {
     }
   }
   print_nSelectCookies();
+  displayCookieInBox(orderCookiePage, cookie, func);
 }
+
 function removeAllBoxes(){
   localStorage.removeItem("allBoxes");
 }
