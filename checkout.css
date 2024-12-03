@@ -21,6 +21,7 @@ body, html {
 }
 body {
   overflow-x: hidden;
+  overflow-y: auto;
   background-color: #f8f2ec;
   width: 100vw;
   height: 100vh;
@@ -215,21 +216,23 @@ body {
 
 
 @media screen and (max-width: 899px) {
+
+
   .bodyContainer {
       display: flex;
-      flex-direction: column; /* Stack the elements vertically */
-      width: 100%; /* Ensure it uses the full width of the screen */
+      flex-direction: column; 
+      width: 100%; 
   }
 
   .bodyContainer > * {
-      width: 100%; /* Make child elements responsive */
-      max-width: 100%; /* Prevent them from exceeding screen width */
+      width: 100%; 
+      max-width: 100%; 
   }
 
   .container2 {
-      margin: 0 auto; /* Center horizontally */
-      width: 90%; /* Optional: Adjust width to fit the smaller screen */
-      max-width: 700px; /* Retain the original maximum width */
+      margin: 0 auto; 
+      width: 90%; 
+      max-width: 700px; 
       height: auto;
   }
 }
@@ -300,7 +303,11 @@ body {
   height: 100%;
   background-color: rgba(17, 16, 16, 0.5);
   z-index: 999;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
+
 
 .modal input {
   margin: 10px 0;
