@@ -111,11 +111,12 @@ function closeReceipt() {
 function showModal() {
   const allBoxes = JSON.parse(localStorage.getItem("allBoxes"))
   if(allBoxes.length == 0){
-    alert("You cannot proceed with the transaction, your cart is empty");
+    customAlert("You cannot proceed with the transaction, your cart is empty");
   }else{
     document.querySelector(".modal").style.display = "block";
     document.querySelector(".modal-overlay").style.display = "block";
     document.querySelector(".cartModal").style.display = "none";
+    clearCookiesImage();
   }
 }
 
@@ -223,24 +224,22 @@ function handleOrder() {
   );
 
   if (success) {
-    alert("Order successfully placed!");
+    customAlert("Order successfully placed!");
     hideModal();
   } else {
-    alert("Error placing order. Please try again.");
+    customAlert("Error placing order. Please try again.");
   }
 }
 
 function showCart() {
   if (orderCookiePage - currentNumberOfCookies != 0) {
-    alert(
-      "Please Select " +
-        (orderCookiePage - currentNumberOfCookies) +
-        " more cookies"
-    );
+    const msg =  "Please Select " +(orderCookiePage - currentNumberOfCookies) +" more cookies"
+    customAlert(msg);
   } else {
     displayAllCookies();
     storeCookiesOnAdd();
     showCart1();
+    clearCookiesImage();
   }
 }
 function showCart1() {
@@ -283,9 +282,9 @@ function storeCookiesOnAdd() {
   const totalCookies = counts.reduce((sum, count) => sum + count, 0);
 
   if (totalCookies !== orderCookiePage) {
-    alert(
-      `Please ensure you select exactly ${orderCookiePage} cookies. You selected ${totalCookies}.`
-    );
+    msg = `Please ensure you select exactly ${orderCookiePage} cookies. You selected ${totalCookies}.`;
+
+    customAlert(msg);
     return;
   }
 
@@ -308,7 +307,7 @@ function storeCookiesOnAdd() {
 
   currentNumberOfCookies = 0;
 
-  alert("Cookies successfully added to the cart!");
+  customAlert("Cookies successfully added to the cart!");
 }
 
 function removeCookie(cookie) {
@@ -417,6 +416,7 @@ function displayCookieInBox(orderCookiePage, cookie, func) {
     imgElement.src = imgCookies[cookie];
     imgElement.alt = `Cookie ${cookie + 1}`;
     imgElement.className = "cookie-image";
+    imgElement.id = "cookie-image";
     boxContainer.appendChild(imgElement);
 
   } else if (func === "-") {
@@ -427,6 +427,14 @@ function displayCookieInBox(orderCookiePage, cookie, func) {
     if (indexToRemove !== -1) {
       cookiesInBox[indexToRemove].remove();
     }
+  }
+}
+function clearCookiesImage(){
+  for(i=0;i<orderCookiePage;i++){
+    const cookieImage = document.getElementById("cookie-image");
+    cookieImage.remove(); 
+    document.getElementById("nSelecCookies").innerHTML =
+      "Select " + (orderCookiePage - currentNumberOfCookies) + " more cookies";
   }
 }
 
@@ -569,8 +577,64 @@ function nonEmpty(){
     branchLocation.value.length <0 ||
     pickupTime.value.length < 0
   ){
-    alert("Please fill-up all the information to complete the transaction");
+    customAlert("Please fill-up all the information to complete the transaction");
   }else{
     hideModal(); handleOrder(); openReceipt();
   }
 }
+
+//this function is temporary displaying a custom alert dialog box
+//this function is temporary displaying a custom alert dialog box
+function customAlertDialogBox(imageSrc, paragraphText, id){
+  const alertBox = document.createElement("div");
+
+  if(id){
+      alertBox.id = id;
+      alertBox.className = "customAlert";
+  }
+
+  const imgElement = document.createElement("img");
+  imgElement.className = "imgBinjin"
+  imgElement.src = imageSrc;
+  imgElement.alt = "Binjin";
+
+  const textDivElement = document.createElement("div");
+  textDivElement.className = "alertTextDiv";
+
+  const paragraphElement = document.createElement("p");
+  paragraphElement.textContent = paragraphText;
+  paragraphElement.className = "alertMsg";
+
+  const btnElement = document.createElement("button");
+  btnElement.textContent = "Okay";
+  btnElement.className = "btnOkay";
+  btnElement.id = "btnOkay";
+  btnElement.addEventListener("click", closeAlertBox);
+
+  alertBox.appendChild(imgElement);
+  alertBox.appendChild(textDivElement);
+  textDivElement.appendChild(paragraphElement);
+  textDivElement.appendChild(btnElement);
+
+  document.body.appendChild(alertBox)
+
+  document.getElementById("btnOkay").onclick = "closeAlertBox()";
+  }
+
+  function customAlert(msg){
+      const alertBox = document.getElementById("alertBox");
+      if (alertBox){
+          
+      }else{
+          customAlertDialogBox("images/binjin.png", msg, "alertBox");
+      }
+  }
+
+  function closeAlertBox(){
+      const alertBox = document.getElementById("alertBox");
+      if (alertBox) {
+          alertBox.remove();
+      } else {
+          console.error("Alert box not found!");
+      }
+  }
