@@ -110,15 +110,27 @@ body {
   align-items: center;
   justify-content: center;
 }
-.cookie-image{
-  width: 70px;
-  height: 70px;
-  animation: rotate360 20s linear infinite;
-  justify-self: center;
+.boxContainer6{
+  position: absolute;
+  margin-top: 10%;
+  height: 30%;
+  width: 60%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 50% 50%;
 }
-@keyframes rotate360 {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
+.boxContainer12{
+  position: absolute;
+  margin-top: 10%;
+  height: 40%;
+  width: 60%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 33% 33% 33%;
 }
 
 .container3 {

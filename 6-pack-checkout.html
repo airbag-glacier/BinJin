@@ -13,7 +13,18 @@
     <script>
       setNums(6);
     </script>
-
+    <style>
+      .cookie-image{
+        width: 65px;
+        height: 65px;
+        animation: rotate360 20s linear infinite;
+        justify-self: center;
+      }
+      @keyframes rotate360 {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+      }
+    </style>
   </head>
   <body>
     <div class="container1">
@@ -27,6 +38,9 @@
       <div class="leftContainer">
         <div class="container2">
           <img class="packs" src="images/jinBox2png.png">
+          <div class="boxContainer6" id="boxContainer6">
+
+          </div>
         </div>
         <div class="divCart">
           <div class="divAddToCart" onclick="showCart()">Add to Cart</div>
