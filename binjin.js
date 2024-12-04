@@ -100,6 +100,7 @@ function openReceipt() {
   document.querySelector(".modal-overlay").style.display = "block";
   document.querySelector(".cartModal").style.display = "none";
   displayReceiptModal();
+  disablBtnAddSub();
 }
 
 function closeReceipt() {
@@ -107,6 +108,7 @@ function closeReceipt() {
   document.querySelector(".receipt-Modal").style.display = "none";
   document.querySelector(".modal-overlay").style.display = "none";
   removeAllBoxes();
+  enableBtnAddSub();
 }
 function showModal() {
   const allBoxes = JSON.parse(localStorage.getItem("allBoxes"))
@@ -117,12 +119,14 @@ function showModal() {
     document.querySelector(".modal-overlay").style.display = "block";
     document.querySelector(".cartModal").style.display = "none";
     clearCookiesImage();
+    disablBtnAddSub();
   }
 }
 
 function hideModal() {
   document.querySelector(".modal").style.display = "none";
   document.querySelector(".modal-overlay").style.display = "none";
+  enableBtnAddSub();
 }
 function displayReceiptModal() {
   const customerName = document.getElementById("customer-name").value;
@@ -240,17 +244,20 @@ function showCart() {
     storeCookiesOnAdd();
     showCart1();
     clearCookiesImage();
+    disablBtnAddSub();
   }
 }
 function showCart1() {
   document.querySelector(".cartModal").style.display = "block";
   document.querySelector(".modal-overlay").style.display = "block";
   displayAllCookies();
+  disablBtnAddSub();
 }
 
 function hideCart() {
   document.querySelector(".cartModal").style.display = "none";
   document.querySelector(".modal-overlay").style.display = "none";
+  enableBtnAddSub();
 }
 function print_nSelectCookies() {
   if (orderCookiePage - currentNumberOfCookies == 0) {
@@ -627,15 +634,29 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
           
       }else{
           customAlertDialogBox("images/binjin.png", msg, "alertBox");
+          disablBtnAddSub();
       }
+  }
+  function disablBtnAddSub(){
+    for (let i = 0; i<8;i++){
+      document.getElementById(`btnCookie${i}Add`).disabled = "true";
+      document.getElementById(`btnCookie${i}`).disabled = "true";
+    }
+  }
+  function enableBtnAddSub(){
+    for (let i = 0; i<8;i++){
+      document.getElementById(`btnCookie${i}Add`).removeAttribute("disabled");
+      document.getElementById(`btnCookie${i}`).removeAttribute("disabled");
+    }
   }
 
   function closeAlertBox(){
       const alertBox = document.getElementById("alertBox");
       if (alertBox) {
-          alertBox.remove();
-          document.querySelector(".modal-overlay").style.display = "none";
-
+        enableBtnAddSub()
+        alertBox.remove();
+        document.querySelector(".modal-overlay").style.display = "none";
+        
       } else {
           console.error("Alert box not found!");
       }

@@ -284,6 +284,10 @@ body {
     overflow: hidden;
 }
 
+input[type="button"]{
+  pointer-events: auto;
+}
+
 .receiptPosition {
   position: relative;
   display: flex; 
