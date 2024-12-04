@@ -584,7 +584,6 @@ function nonEmpty(){
 }
 
 //this function is temporary displaying a custom alert dialog box
-//this function is temporary displaying a custom alert dialog box
 function customAlertDialogBox(imageSrc, paragraphText, id){
   const alertBox = document.createElement("div");
 
@@ -623,6 +622,7 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
 
   function customAlert(msg){
       const alertBox = document.getElementById("alertBox");
+      document.querySelector(".modal-overlay").style.display = "block";
       if (alertBox){
           
       }else{
@@ -634,6 +634,8 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
       const alertBox = document.getElementById("alertBox");
       if (alertBox) {
           alertBox.remove();
+          document.querySelector(".modal-overlay").style.display = "none";
+
       } else {
           console.error("Alert box not found!");
       }
