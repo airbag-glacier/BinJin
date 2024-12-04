@@ -239,6 +239,7 @@ function showCart() {
   if (orderCookiePage - currentNumberOfCookies != 0) {
     const msg =  "Please Select " +(orderCookiePage - currentNumberOfCookies) +" more cookies"
     customAlert(msg);
+
   } else {
     displayAllCookies();
     storeCookiesOnAdd();
@@ -610,6 +611,7 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
   const paragraphElement = document.createElement("p");
   paragraphElement.textContent = paragraphText;
   paragraphElement.className = "alertMsg";
+  paragraphElement.id = "alertMsg";
 
   const btnElement = document.createElement("button");
   btnElement.textContent = "Okay";
@@ -638,25 +640,36 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
       }
   }
   function disablBtnAddSub(){
-    for (let i = 0; i<8;i++){
-      document.getElementById(`btnCookie${i}Add`).disabled = "true";
-      document.getElementById(`btnCookie${i}`).disabled = "true";
+      if(document.querySelector(".modal-overlay").style.display == "block"){
+        for (let i = 0; i<8;i++){
+        document.getElementById(`btnCookie${i}Add`).disabled = "true";
+        document.getElementById(`btnCookie${i}`).disabled = "true";
+      }
     }
+    
   }
   function enableBtnAddSub(){
-    for (let i = 0; i<8;i++){
-      document.getElementById(`btnCookie${i}Add`).removeAttribute("disabled");
-      document.getElementById(`btnCookie${i}`).removeAttribute("disabled");
+    if(document.querySelector(".modal-overlay").style.display == "none"){
+      for (let i = 0; i<8;i++){
+            document.getElementById(`btnCookie${i}Add`).removeAttribute("disabled");
+            document.getElementById(`btnCookie${i}`).removeAttribute("disabled");
+          }
     }
+    
   }
 
-  function closeAlertBox(){
+  function closeAlertBox(openedModal){
       const alertBox = document.getElementById("alertBox");
+      var subString = "Please Select ";
+      const fullString = document.getElementById("alertMsg");
+      var varfullstring = fullString.textContent;
       if (alertBox) {
         enableBtnAddSub()
         alertBox.remove();
-        document.querySelector(".modal-overlay").style.display = "none";
-        
+        if(varfullstring.includes(subString)){
+          document.querySelector(".modal-overlay").style.display = "none";
+          enableBtnAddSub();
+        }
       } else {
           console.error("Alert box not found!");
       }
