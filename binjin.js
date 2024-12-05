@@ -70,25 +70,25 @@ function openClassicInfo() {
   window.location.href = "classicInfo.html";
 }
 function openPeanutInfo() {
-  window.location.href = "classicInfo.html";
+  window.location.href = "peanutInfo.html";
 }
 function openOatmealInfo() {
-  window.location.href = "classicInfo.html";
+  window.location.href = "oatmealInfo.html";
 }
 function openSmoresInfo() {
-  window.location.href = "classicInfo.html";
+  window.location.href = "smoresInfo.html";
 }
-function openPinkSugarInfor() {
-  window.location.href = "classicInfo.html";
+function openPinkSugarInfo() {
+  window.location.href = "pinkInfo.html";
 }
 function openChocoStrawInfo() {
-  window.location.href = "classicInfo.html";
+  window.location.href = "chocoInfo.html";
 }
 function openLemonInfo() {
-  window.location.href = "classicInfo.html";
+  window.location.href = "lemonInfo.html";
 }
 function openBerriesInfo() {
-  window.location.href = "classicInfo.html";
+  window.location.href = "berriesInfo.html";
 }
 function returnToLandingPage() {
   window.location.href = "index.html";
