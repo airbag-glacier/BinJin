@@ -674,3 +674,41 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
           console.error("Alert box not found!");
       }
   }
+
+  // FAQ
+  function expandRectangle(element) {
+    // Get the associated question for the clicked FAQ item
+    const question = element.querySelector('.question1, .question2, .question3, .question4, .question5');
+    let newText = element.querySelector('.new-text'); // Check if new text is already present
+
+    // If the new text does not exist, create it
+    if (!newText) {
+        newText = document.createElement('span');  // Create a new span element
+        newText.classList.add('new-text');  // Add the class for styling the new text
+
+        // Customize the answer text for each FAQ
+        if (element.classList.contains('faq1')) {
+        newText.textContent = " - Our cookies are made from the finest ingredients, with unique flavors.";
+        } else if (element.classList.contains('faq2')) {
+        newText.textContent = " - We’re open Monday to Saturday from 9:00 AM to 7:00 PM.";
+        } else if (element.classList.contains('faq3')) {
+        newText.textContent = " - Absolutely! We accept custom orders for events such as birthdays and weddings.";
+        } else if (element.classList.contains('faq4')) {
+        newText.textContent = " - To keep our cookies fresh, we only offer pickup options.";
+        } else if (element.classList.contains('faq5')) {
+        newText.textContent = " - Yes, all our cookies are baked fresh daily to guarantee top quality and taste.";
+        }
+
+        question.appendChild(newText);  // Append the new text to the question
+    }
+    
+    // Toggle visibility of the new text (answer)
+    newText.style.display = newText.style.display === 'none' ? 'block' : 'none';
+
+    // Rotate the arrow to indicate the change
+    const arrow = element.querySelector('img');
+    if (arrow) {
+        arrow.classList.toggle('rotate');  // Toggle rotation class
+    }
+    }
+

@@ -6,49 +6,7 @@
         <title>BinJin Cookies</title>
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="main.css">
-        
-        <script type="text/javascript" src="binjin.js">
-            function expandRectangle(element) {
-            // Get the associated question for the clicked FAQ item
-            const question = element.querySelector('.question1, .question2, .question3, .question4, .question5');
-            let newText = element.querySelector('.new-text'); // Check if new text is already present
-
-            // If the new text does not exist, create it
-            if (!newText) {
-                newText = document.createElement('span');  // Create a new span element
-                newText.classList.add('new-text');  // Add the class for styling the new text
-
-                // Customize the answer text for each FAQ
-                if (element.classList.contains('faq1')) {
-                newText.textContent = " - Our cookies are made from the finest ingredients, with unique flavors.";
-                } else if (element.classList.contains('faq2')) {
-                newText.textContent = " - We’re open Monday to Saturday from 9:00 AM to 7:00 PM.";
-                } else if (element.classList.contains('faq3')) {
-                newText.textContent = " - Absolutely! We accept custom orders for events such as birthdays and weddings.";
-                } else if (element.classList.contains('faq4')) {
-                newText.textContent = " - To keep our cookies fresh, we only offer pickup options.";
-                } else if (element.classList.contains('faq5')) {
-                newText.textContent = " - Yes, all our cookies are baked fresh daily to guarantee top quality and taste.";
-                }
-
-                question.appendChild(newText);  // Append the new text to the question
-            }
-            
-            // Toggle visibility of the new text (answer)
-            newText.style.display = newText.style.display === 'none' ? 'block' : 'none';
-
-            // Rotate the arrow to indicate the change
-            const arrow = element.querySelector('img');
-            if (arrow) {
-                arrow.classList.toggle('rotate');  // Toggle rotation class
-            }
-            }
-
-
-
-        </script>
-
-
+        <script type="text/javascript" src="binjin.js"></script>
     </head>
 
     <body>
@@ -65,8 +23,6 @@
                     <button class="btnOrder" id ="btn_Order" onclick="openPageOrderNow()">Order Now</button>
                     <img class="binjin" src="images/binjin.png"/>
                 </div>
-                
-    
                 <img class="pointedStar1" src="images/pointedStar.png"/>
                 <img class="pointedStar2" src="images/pointedStar.png"/>
                 <img class="star1" src="images/star1.png"/>
@@ -75,11 +31,9 @@
                 
                 <img class="heart1" src="images/heart1.png"/>
                 <img class="heart2" src="images/heart2.png"/>
-               
             </div>
     
             <div class="div2">
-    
                 <img class="brownStar1" src="images/brownStar.png" />
                 <img class="brownStar2" src="images/brownStar.png" />
                 <div class="CFcontainer">
@@ -119,11 +73,7 @@
                         <div class="desc">A decadent explosion of rich flavors including brownie, graham cracker, milk chocolate chips, and perfectly melty marshmallows.</div>
                         <img class="arrowhead" src="images/arrowhead.png" />
                       </div>
-                </div>
-                
-              
-                
-                
+                </div>     
             </div>
              
             <div class="div3">
@@ -157,7 +107,6 @@
                         <img class="arrowhead" src="images/arrowhead.png" />
                     </div>
                 </div>
-                
                 <button class="btnOrder2"id ="btn_Order" onclick="openPageOrderNow()">Order Now</button>
                 <img class="strawberry" src="images/strawberry.png" />
             </div>
@@ -175,7 +124,6 @@
                 <img class="star34" src="images/star3.png" />
                 <img class="heart24" src="images/heart2.png" />
                 <img class="backstory" src="images/backstory.png" />
-                
               </div>
               
               <div class="div5">
@@ -234,7 +182,6 @@
                         <img class="stars3" src="images/5stars.png" />
                       </div>
                 </div>
-                
               </div>
               
               <div class="div7">
@@ -243,7 +190,7 @@
                     <div class="header7">FAQs</div>
                     <img class="brownStar27" src="images/brownStar.png" alt="Star decoration" />
                 </div>
-                <!-- FAQ Container -->
+     
                 <!-- FAQ Container -->
                 <div class="faq-container">
                     <div class="faq1" onclick="expandRectangle(this)">
@@ -271,7 +218,6 @@
                         <img class="arrowDown5" src="images/arrowDown.png" alt="Arrow pointing down" />
                     </div>
                 </div>
-
             </div>
             
               
@@ -296,8 +242,7 @@
                             <a href=""><img class="fb" src="images/fb.png" /></a>
                             <a href=""><img class="ig" src="images/ig.png" /></a>
                             <a href=""><img class="whatsapp" src="images/whatsapp.png" /></a>
-                          </div>
-                          
+                          </div>  
                     </div>
                 </div>
                 <div class="line"></div>
