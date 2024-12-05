@@ -29,12 +29,17 @@
   </head>
   <body>
     <div class="container1">
+     
       <div class="divHome">
         <img class="home" src="images/home.png" onclick="returnToLandingPage()"/>
       </div>
-      <div class="divBinJin">BinJin</div>
-      <div class="cartButton" onclick="showCart1()"><img class="shoppingCart" src="images\shopping_cart_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"></div>
+
+      <div class="cartButton">
+        <img class="shoppingCart" src="images/cart.png" onclick="showCart1()">
+      </div>
+
     </div>
+
     <div class="bodyContainer">
       <div class="leftContainer">
         <div class="container2">
@@ -54,8 +59,8 @@
       <div class="container3">
         <form>
           <p id="nSelecCookies" class="selectCookies">Select 3 cookies</p>
-          <p id="remainingCookiesTitle" class="selectCookies">Remaining Cookies:</p>
-          <p id="remainingCookiesContent" class="selectCookies"></p>
+          <!-- <p id="remainingCookiesTitle" class="selectCookies">Remaining Cookies:</p>
+          <p id="remainingCookiesContent" class="selectCookies"></p> -->
           <div class="classic">
             <h6>
               <img class="classicIcon" src="images/classic.png" />Classic Cookie
@@ -285,6 +290,8 @@
       </div>
     </div> 
 
+    <img class="cloudBot" src="images/clouds5.png"> 
+
     <div class="modal-overlay" onclick="hideModal()"></div>
     <div class="modal">
       <h2>Customer Details</h2>
@@ -339,6 +346,7 @@
       <br>
       <button class="close-receipt" onclick="closeReceipt()">Close</button>
     </div>
+    
     
     
     <script src="./pack-checkout.js"></script>

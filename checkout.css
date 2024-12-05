@@ -1,7 +1,3 @@
-
-
-
-
 @font-face {
   font-family: "CurlyCandy";
   src: url("font/CurlyCandy.ttf") format("truetype");
@@ -22,28 +18,24 @@ body, html {
 body {
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #f8f2ec;
+  background-color: #ffe4ce;
   width: 100vw;
   height: 100vh;
   display: flex; 
   flex-direction: column; 
 }
+
 .container1 {
-  background-color: #ffb9cd;
+  background: none;
   position: relative;
   display: flex; 
   flex-direction: column; 
   align-items: center;
   justify-content: space-between; 
   box-sizing: border-box; 
-  box-shadow: 0px 2.53px 0px 3px black;
   flex-direction: row;
-}
-.divBinJin {
-  font-family: 'CurlyCandy';
-  font-size: 30px;
-  align-items: center;
-}
+} 
+
 .divHome {
   height: 50px; 
   width: 50px; 
@@ -51,21 +43,41 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 30px;
+  overflow: hidden;
 }
+
 .divHome img {
+  width: 100%;
+  height: 100%; 
+  object-fit: contain; 
+}
+
+.cartButton {
+  height: 50px; 
   width: 50px; 
-  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  overflow: hidden;
+}
+
+.cartButton img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
-.cartButton {
-  position: relative; 
-  background-color: #eb5680; 
-  /*border: solid black 1px; */
-  border-radius: 50%; 
-  padding: 6px 6px; 
-  cursor: pointer; 
-  margin-right: 20px;
+
+.home, .shoppingCart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
+
+
 .bodyContainer {
   width: 100%;
   height: auto;
@@ -82,14 +94,14 @@ body {
   position: relative;
 }
 .container2 {
-  background-color: #ffb9cd;
+  background-color: none;
   width: 100%; 
   max-width: 700px; 
   height: 70vh; 
   position: relative;
   border-radius: 8%;
-  border: 0.5px solid black;
   margin: 10px;
+  margin-bottom: 0;
   padding: 10px;
   box-sizing: border-box; 
   display: flex;
@@ -139,13 +151,13 @@ body {
   max-width: 800px; 
   height: 90vh;
   position: relative;
-  font-family: 'ComicBold';
-  letter-spacing: -0.2vh;
+  font-family: 'ComicRegular';
   font-size: 7vh;
   padding-left: 2%;
   overflow-y: scroll;
   padding-top: 2;
   padding-bottom: 2;
+  color: #68400a;
 }
 .divCart {
   display: flex;
@@ -158,14 +170,13 @@ body {
   height: auto; 
 }
 .divAddToCart, .returnOrderNow {
-  background-color: #ffb9cd;
+  background-color: #F86B87;
+  color: white;
   width: 200px;
-  height: 12vh;
+  height: 5vh;
   font-family: 'ComicBold';
-  letter-spacing: -0.3vh;
-  font-size: 30px;
-  border-radius: 20px;
-  border: solid black 1px;
+  font-size: 1.1em;
+  border-radius: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -176,17 +187,13 @@ body {
   overflow: hidden; 
   line-height: 1.4; 
 }
-.home {
-  position: relative;
-  width: 100%;
-  height: 12vh;
-  cursor: pointer;
-  scale: 0.8;
-}
+
 .selectCookies {
   font-size: 4vh;
   margin: 0px;
-  margin-bottom: 0;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  font-family: "ComicBold";
 }
 .classic,
 .pntButter,
@@ -196,9 +203,8 @@ body {
 .chStrawberry,
 .lemCheesecake,
 .berCream {
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid #68400a;
   height: 9vh;
-  font-size: 40px;
   align-items: center;
   align-self: center;
   justify-content: left;
@@ -206,7 +212,9 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0px;
+  font-size: 40px;
 }
+
 .classicIcon{
   position: relative;
   width: 30px;
@@ -235,6 +243,7 @@ body {
       max-width: 700px; 
       height: auto;
   }
+
 }
 
 .open-modal {
@@ -256,10 +265,13 @@ body {
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 50px;
-  border-radius: 5%;
+  border-radius: 30px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   width: 50%;
+  color: #68400a;
+  border: 1.5px solid #ffe4cf;
+
 }
 
 .receipt-Modal { 
@@ -270,7 +282,7 @@ body {
     transform: translate(-50%, -50%); 
     background-color: #fff; 
     padding: 50px; 
-    border-radius: 5%; 
+    border-radius: 30px; 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
     z-index: 1000; 
     width: 50%; 
@@ -282,6 +294,8 @@ body {
     justify-content: center; 
     align-items: center; 
     overflow: hidden;
+    color: #68400a;
+    border: 1.5px solid #ffe4cf;
 }
 
 input[type="button"]{
@@ -319,36 +333,49 @@ input[type="button"]{
   width: 100%;
   font-family: "ComicBold";
   border-style: groove;
+  border: 1px solid #68400a;
+  border-radius: 15px;
+  color: #68400a;
 }
+
+input::placeholder{
+  color: #68400a;
+}
+
 .modal select {
   margin: 10px 0;
   padding: 10px;
-  width: 100%;
+  width: 102%;
   font-family: "ComicBold";
   border-style: groove;
+  border: 1px solid #68400a;
+  border-radius: 15px;
+  color: #68400a;
 }
 
 
 .close-modal,
 .closeCart, .close-receipt {
   font-family: "ComicBold";
-  background-color: #f19eb6;
-  border: 1px black solid;
+  background-color: #F86B87;
+  border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 8px;
   margin-top: 10px;
+  color: #fff;
 }
 
 .confirm-modal,
 .confirmCart {
   font-family: "ComicBold";
   background-color: #036e5d;
-  border: 1px black solid;
+  border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 8px;
   margin-top: 10px;
+  color: #fff;
 }
 
 .cartModal {
@@ -358,23 +385,19 @@ input[type="button"]{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: white;
+  border: 1.5px solid #ffe4cf;
   padding: 50px;
-  border-radius: 4%;
+  border-radius: 30px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   width: 35%;
   max-height: 90%;
   height: 50vh;
   overflow-y: scroll;
+  color: #68400a;
 }
 
-
-
-.shoppingCart{
-  width: 30px;
-  height: 30px;
-}
 .quantifiers {
   position: absolute;
   height: inherit;
@@ -382,17 +405,27 @@ input[type="button"]{
   display: flex;
   align-items: center;
   width: 90%;
+  
 }
 .btnCookieSub,
 .btnCookieAdd {
   width: 30px;
   height: 30px;
   text-align: center;
+  font-family: "ComicRegular";
+  background-color: #68400a;
+  color: white;
+  border: 1px solid #FFE4CE;
+  font-size: 0.5em;
 }
 .numCookie {
   width: 30px;
-  height: 25px;
+  height: 30px;
   text-align: center;
+  font-family: "ComicRegular";
+  background: none;
+  border: 1px solid #68400a;
+  color: #68400a;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -400,9 +433,17 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 input[type="button"]:active {
-  background-color: #f19eb6;
+  background-color: #FFE4CE;
   border: none;
 }
 
+.cloudBot {
+  width: 100vw; 
+  position: fixed; 
+  bottom: 0;
+  left: 0; 
+  height: 800px; 
+  z-index: -1; 
+}
 
 
