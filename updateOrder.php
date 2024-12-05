@@ -2,7 +2,7 @@
 include 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect data from the form
+ 
     $order_id = $_POST['order_id'];
     $order_customer_name = $_POST['order_customer_name'];
     $order_contact_number = $_POST['order_contact_number'];
@@ -10,9 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $order_reference_number = $_POST['order_reference_number'];
     $order_branch_location = $_POST['order_branch_location'];
     $order_pickup_time = $_POST['order_pickup_time'];
-    $order_status = $_POST['order_status']; // New field for status
+    $order_status = $_POST['order_status']; 
 
-    // Update query for the order
+   
     $sql = "
         UPDATE orders 
         SET 
@@ -26,26 +26,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         WHERE order_id=$order_id
     ";
 
-    // Execute the query and handle the result
+
     if ($conn->query($sql) === TRUE) {
-        // Redirect to the index page upon successful update
+
         header("Location: index.php");
-        exit(); // Stop further script execution
+        exit(); 
     } else {
-        // Capture the error for display
+       
         $error = "Error updating record: " . $conn->error;
     }
 }
 
-// If the request is GET, fetch data to populate the form
+
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $order_id = $_GET['order_id'];
 
-    // Query to fetch the specific order
+
     $sql = "SELECT * FROM orders WHERE order_id=$order_id";
     $result = $conn->query($sql);
 
-    // Fetch the order data
+  
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     } else {
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Order</title>
 
-    <!-- Bootstrap CSS -->
+   
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         @font-face {
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <div class="alert alert-danger mt-3"><?= $error ?></div>
 <?php endif; ?>
 
-<!-- Update Order Form -->
+
 <form action="updateOrder.php" method="POST">
     <input type="hidden" name="order_id" value="<?php echo $row['order_id']; ?>">
     <div class="form-group">
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <button type="submit" class="btn btn-primary">Update Order</button>
 </form>
 
-<!-- Optional JavaScript -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

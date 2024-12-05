@@ -31,10 +31,16 @@
 include 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $cookie_id = $_GET['cookie_id'];
-    $sql = "SELECT * FROM cookies WHERE cookie_id=$cookie_id";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    if (isset($_GET['cookie_id'])) {
+        $cookie_id = $_GET['cookie_id'];
+        $sql = "SELECT * FROM cookies WHERE cookie_id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $cookie_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $stmt->close();
+    }
 }
 ?>
 
@@ -57,24 +63,52 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cookie_id = $_POST['cookie_id'];
-    $flavor_id = $_POST['flavor_id'];
-    $order_id = $_POST['order_id'] ?? NULL;
+    if (isset($_POST['cookie_id']) && isset($_POST['flavor_id']) && isset($_POST['order_id'])) {
+        $cookie_id = $_POST['cookie_id'];
+        $flavor_id = $_POST['flavor_id'];
+        $order_id = $_POST['order_id'];
 
-    $sql = "UPDATE cookies SET flavor_id='$flavor_id', order_id='$order_id' WHERE cookie_id=$cookie_id";
+        // Validate if the new flavor_id exists
+        $flavor_check_sql = "SELECT 1 FROM flavors WHERE flavor_id=?";
+        $flavor_check_stmt = $conn->prepare($flavor_check_sql);
+        $flavor_check_stmt->bind_param("i", $flavor_id);
+        $flavor_check_stmt->execute();
+        $flavor_check_result = $flavor_check_stmt->get_result();
 
-    if ($conn->query($sql) === TRUE) {
-        echo "<div class='alert alert-success mt-3'>Cookie updated successfully</div>";
+        // Validate if the new order_id exists
+        $order_check_sql = "SELECT 1 FROM orders WHERE order_id=?";
+        $order_check_stmt = $conn->prepare($order_check_sql);
+        $order_check_stmt->bind_param("i", $order_id);
+        $order_check_stmt->execute();
+        $order_check_result = $order_check_stmt->get_result();
+
+        if ($flavor_check_result->num_rows > 0 && $order_check_result->num_rows > 0) {
+            // Both flavor_id and order_id exist, proceed with the update
+            $update_sql = "UPDATE cookies SET flavor_id=?, order_id=? WHERE cookie_id=?";
+            $update_stmt = $conn->prepare($update_sql);
+            $update_stmt->bind_param("iii", $flavor_id, $order_id, $cookie_id);
+
+            if ($update_stmt->execute()) {
+                echo "<div class='alert alert-success mt-3'>Cookie updated successfully</div>";
+            } else {
+                echo "<div class='alert alert-danger mt-3'>Error updating record: " . $conn->error . "</div>";
+            }
+
+            $update_stmt->close();
+        } else {
+            echo "<div class='alert alert-danger mt-3'>Error: The specified flavor_id or order_id does not exist.</div>";
+        }
+
+        $flavor_check_stmt->close();
+        $order_check_stmt->close();
     } else {
-        echo "<div class='alert alert-danger mt-3'>Error updating record: " . $conn->error . "</div>";
+        echo "<div class='alert alert-danger mt-3'>Error: Missing required POST parameters.</div>";
     }
-
     $conn->close();
     header("Location: index.php");
     exit();
 }
 ?>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
