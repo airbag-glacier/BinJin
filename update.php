@@ -68,14 +68,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $flavor_id = $_POST['flavor_id'];
         $order_id = $_POST['order_id'];
 
-        // Validate if the new flavor_id exists
+
         $flavor_check_sql = "SELECT 1 FROM flavors WHERE flavor_id=?";
         $flavor_check_stmt = $conn->prepare($flavor_check_sql);
         $flavor_check_stmt->bind_param("i", $flavor_id);
         $flavor_check_stmt->execute();
         $flavor_check_result = $flavor_check_stmt->get_result();
 
-        // Validate if the new order_id exists
+   
         $order_check_sql = "SELECT 1 FROM orders WHERE order_id=?";
         $order_check_stmt = $conn->prepare($order_check_sql);
         $order_check_stmt->bind_param("i", $order_id);
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $order_check_result = $order_check_stmt->get_result();
 
         if ($flavor_check_result->num_rows > 0 && $order_check_result->num_rows > 0) {
-            // Both flavor_id and order_id exist, proceed with the update
+         
             $update_sql = "UPDATE cookies SET flavor_id=?, order_id=? WHERE cookie_id=?";
             $update_stmt = $conn->prepare($update_sql);
             $update_stmt->bind_param("iii", $flavor_id, $order_id, $cookie_id);
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<div class='alert alert-danger mt-3'>Error: Missing required POST parameters.</div>";
     }
     $conn->close();
-    header("Location: index.php");
+    header("Location: binjinAdmin.php");
     exit();
 }
 ?>

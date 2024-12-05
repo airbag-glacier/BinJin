@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
 
-        header("Location: index.php");
+        header("Location: binjinAdmin.php");
         exit(); 
     } else {
        

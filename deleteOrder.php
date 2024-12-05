@@ -26,7 +26,7 @@ if (isset($_GET['order_id'])) {
         $stmt2->close();
         $conn->close();
 
-        header("Location: index.php");
+        header("Location: binjinAdmin.php");
         exit();
     } catch (Exception $e) {
       
