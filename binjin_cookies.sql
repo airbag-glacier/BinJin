@@ -35,23 +35,32 @@ CREATE TABLE `orders` (
   `order_total_payment` decimal(10,2) DEFAULT NULL,
   `order_reference_number` varchar(50) DEFAULT NULL,
   `order_branch_location` varchar(100) DEFAULT NULL,
-  `order_pickup_time` varchar(255) DEFAULT NULL
+  `order_pickup_time` varchar(255) DEFAULT NULL,
+  `order_status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
+CREATE TABLE `cookies` (
+  `cookie_id` int(11) NOT NULL,
+  `flavor_id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 INSERT INTO `orders` (`order_id`, `order_date_of_purchase`, `order_customer_name`, `order_contact_number`, `order_total_payment`, `order_reference_number`, `order_branch_location`, `order_pickup_time`) VALUES
 (1, '2024-11-26 01:11:50', 'Gabriel Garcia', '09294674510', 200.00, 'GC123456789', 'Tarlac', 'Tom 4-5pm');
 
 INSERT INTO `cookies` (`cookie_id`, `flavor_id`, `order_id`) VALUES
+(1, 1, 1),
+(2, 2, NULL),
+(3, 3, 1),
+(4, 4, NULL),
 (5, 1, 1),
 (6, 5, NULL),
-(7, 6, 6),
-(8, 7, NULL),
-(9, 8, NULL),
-(0, 1, 2);
+(7, 6, NULL),
+(8, 7, NULL);
 
 -- --------------------------------------------------------
 
@@ -81,42 +90,58 @@ INSERT INTO `flavors` (`flavor_id`, `flavor_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Indexes for table `orders`
 --
-
-CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `contact_number` varchar(100) NOT NULL,
-  `bank_ref_num` int(11) NOT NULL,
-  `branch` varchar(100) NOT NULL,
-  `order_date` datetime DEFAULT current_timestamp()
-  `order_pickup`datetime  NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ALTER TABLE `cookies`
+  ADD PRIMARY KEY (`cookie_id`),
+  ADD KEY `flavor_id` (`flavor_id`),
+  ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for dumped tables
+-- Indexes for table `flavors`
 --
+ALTER TABLE `flavors`
+  ADD PRIMARY KEY (`flavor_id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `cookies`
+--
+ALTER TABLE `cookies`
+  MODIFY `cookie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `flavors`
+--
+ALTER TABLE `flavors`
+  MODIFY `flavor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cookies`
+--
+ALTER TABLE `cookies`
+  ADD CONSTRAINT `cookies_ibfk_1` FOREIGN KEY (`flavor_id`) REFERENCES `flavors` (`flavor_id`),
+  ADD CONSTRAINT `cookies_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
-
-ALTER TABLE cookies DROP FOREIGN KEY cookies_ibfk_2;
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
