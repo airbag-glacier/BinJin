@@ -787,6 +787,7 @@ position: absolute;
 .backstory {
 width: 70%; /* Adjust the width of the background image */
 height: auto; /* Maintain aspect ratio */
+padding-bottom: 80px;
 }
 
 .desc4 {
@@ -814,8 +815,9 @@ animation: pop 1.5s ease-in-out infinite;
     height: 100vh; 
     display: flex;
     flex-direction: row;
-    margin: 0; /* Ensure no margin */
-    overflow: hidden
+    margin: 0;
+    overflow: hidden;
+    padding-top: 50px;
 }
 
 .h5Container {
