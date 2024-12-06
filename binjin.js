@@ -703,7 +703,7 @@ function customAlertDialogBox(imageSrc, paragraphText, id){
     }
     
     // Toggle visibility of the new text (answer)
-    newText.style.display = newText.style.display === 'none' ? 'block' : 'none';
+    newText.style.display = newText.style.display === 'block' ? 'none' : 'block';
 
     // Rotate the arrow to indicate the change
     const arrow = element.querySelector('img');
