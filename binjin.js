@@ -114,12 +114,14 @@ function showModal() {
   const allBoxes = JSON.parse(localStorage.getItem("allBoxes"))
   if(allBoxes.length == 0){
     customAlert("You cannot proceed with the transaction, your cart is empty");
-  }else{
+  }else if(allBoxes.length !== 0){
     document.querySelector(".modal").style.display = "block";
     document.querySelector(".modal-overlay").style.display = "block";
     document.querySelector(".cartModal").style.display = "none";
     clearCookiesImage();
     disablBtnAddSub();
+  }else{
+    customAlert("You cannot proceed with the transaction, your cart is empty");
   }
 }
 
@@ -579,16 +581,31 @@ function nonEmpty(){
   const paymentReference = document.getElementById("payment-reference");
   const branchLocation = document.getElementById("branch-location");
   const pickupTime = document.getElementById("pickup-time");
-  if(customerName.value.length < 0 ||
-    contactNumber.value.length < 10 ||
-    paymentReference.value.length < 0 ||
-    branchLocation.value.length <0 ||
-    pickupTime.value.length < 0
+  if(customerName.value.length < 2 ||
+    contactNumber.value.length == 0 ||
+    paymentReference.value.length == 0 ||
+    branchLocation.value.length == 0 ||
+    pickupTime.value.length == 0
   ){
     customAlert("Please fill-up all the information to complete the transaction");
+  }else if(contactNumber.value.length < 10){
+    customAlert("Please use 09XXXXXXXX number format");
+  } else if (!isValidPickupTime(pickupTime.value)) {
+    customAlert("Please select a pickup time between 9:00 AM and 6:00 PM.");
   }else{
     hideModal(); handleOrder(); openReceipt();
   }
+}
+function isValidPickupTime(time) {
+  const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/; 
+  if (!timeRegex.test(time)) return false;
+
+  const [hours, minutes] = time.split(":").map(Number);
+  const pickupMinutes = hours * 60 + minutes; 
+  const startMinutes = 9 * 60; 
+  const endMinutes = 18 * 60; 
+
+  return pickupMinutes >= startMinutes && pickupMinutes <= endMinutes;
 }
 
 //this function is temporary displaying a custom alert dialog box

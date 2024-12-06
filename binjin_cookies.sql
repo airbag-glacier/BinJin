@@ -57,10 +57,10 @@ INSERT INTO `cookies` (`cookie_id`, `flavor_id`, `order_id`) VALUES
 (2, 2, NULL),
 (3, 3, 1),
 (4, 4, NULL),
-(5, 1, 1),
-(6, 5, NULL),
-(7, 6, NULL),
-(8, 7, NULL);
+(5, 5, 1),
+(6, 6, NULL),
+(7, 7, NULL),
+(8, 8, NULL);
 
 -- --------------------------------------------------------
 
@@ -142,6 +142,16 @@ ALTER TABLE `cookies`
   ADD CONSTRAINT `cookies_ibfk_1` FOREIGN KEY (`flavor_id`) REFERENCES `flavors` (`flavor_id`),
   ADD CONSTRAINT `cookies_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
+
+ALTER TABLE `orders` 
+CHANGE `order_status` `order_status` BOOLEAN NULL DEFAULT 0;
+
+UPDATE orders
+SET order_status = CASE
+  WHEN order_status = 'Pending' THEN 0
+  WHEN order_status = 'Done' THEN 1
+  ELSE NULL
+END;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
