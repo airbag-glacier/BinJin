@@ -1069,7 +1069,7 @@ margin: 10px;
 min-width: 300px; /* Prevent reviews from becoming too narrow */
 max-width: 350px; /* Optional: Limit maximum width for uniformity */
 border-radius: 30px; /* Rounded corners */
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow */
+border: 1px #FFE4CE solid;
 background: white; /* Background for the review cards */
 position: relative; /* Ensure proper alignment of child elements */
 padding: 20px; /* Add padding for content */
