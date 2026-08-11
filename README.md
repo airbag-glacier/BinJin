@@ -17,7 +17,7 @@ Managing orders manually can lead to mix-ups and inefficiencies. The BinJin Cook
 - **Cart Management:** Dynamic shopping cart allowing users to add, remove, and adjust quantities before checkout.
 - **Order Tracking:** Automated tracking to keep the customer updated on their order status (Pending, Baking, Out for Delivery).
 - **User Authentication:** Secure login and registration for customers to save delivery details and view order history.
-- **Admin Dashboard (Optional):** A dedicated view for store owners to manage inventory, update product details, and track incoming orders.
+- **Admin Dashboard:** A dedicated view for store owners to manage inventory, update product details, and track incoming orders.
 - **Clean UI/UX:** Designed with a minimalist, editorial aesthetic for intuitive navigation.
 
 ## 🛠️ Technologies Used
