@@ -29,8 +29,8 @@ Managing orders manually can lead to mix-ups and inefficiencies. The BinJin Cook
 - Tech: [e.g., HTML/CSS/JavaScript OR Kotlin / Android Studio]
 
 **Backend / Database:**
-- Tech: [e.g., Node.js / Express OR Python]
-- Database: [e.g., Firebase / MySQL / MongoDB]
+- Tech: [ HTML / Bootstrap CSS / JS ]
+- Database: [MySQL]
 
 ## 🚀 How to Run Locally
 
