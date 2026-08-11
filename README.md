@@ -26,11 +26,11 @@ Managing orders manually can lead to mix-ups and inefficiencies. The BinJin Cook
 
 **Frontend / Client App:**
 - UI Design: Figma
-- Tech: [e.g., HTML/CSS/JavaScript OR Kotlin / Android Studio]
+- Tech:  HTML/BootstrapCSS/JavaScript / VS Code
 
 **Backend / Database:**
-- Tech: [ HTML / Bootstrap CSS / JS ]
-- Database: [MySQL]
+- Tech: PHP
+- Database: MySQL
 
 ## 🚀 How to Run Locally
 
