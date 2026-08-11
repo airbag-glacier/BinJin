@@ -22,10 +22,8 @@ Managing orders manually can lead to mix-ups and inefficiencies. The BinJin Cook
 
 ## 🛠️ Technologies Used
 
-*(Note: Update this section based on the actual technologies you used for the project!)*
-
 **Frontend / Client App:**
-- UI Design: Figma
+- UI Design: Figma/Canva
 - Tech:  HTML/BootstrapCSS/JavaScript / VS Code
 
 **Backend / Database:**
